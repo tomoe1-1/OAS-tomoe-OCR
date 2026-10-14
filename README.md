@@ -85,9 +85,36 @@ OASX 通过 HTTP 协议与本项目通信。本版端口：
 - 内置 Python 3.10 运行库及全部依赖
 - PP-OCRv6 medium det / rec ONNX 模型
 
-三者齐全的完整部署包另行提供（`OAS-OCR-2026.10.14-ocr.1-full.zip`，约 500 MB，含运行库与模型）。
+## 下载与部署
+
+本仓库只含**源码**。要能跑起来还需要完整运行包，本项目已打包为 GitHub Release：
+
+**→ [下载页 oas-ocr-2026.10.14-ocr.1](https://github.com/tomoe1-1/OAS-tomoe-OCR/releases/tag/oas-ocr-2026.10.14-ocr.1)**
+
+| 资产 | 大小 | 用途 |
+|---|---:|---|
+| `OAS-OCR-2026.10.14-ocr.1-full.zip` | 500 MB | **完整部署包** — 含业务源码、Python 3.10 运行库、全部依赖、图片资产、PP-OCRv6 medium det/rec ONNX 模型。解压即可运行 |
+| `OAS-OCR-2026.10.14-ocr.1-source.zip` | 74 MB | 纯源码与资源（不含 toolkit 运行库），用于开发 |
+
+> 部署包走 Release 而非 git 仓库：GitHub 单个 git blob 硬限 100 MB，而完整包约 500 MB。
+
+校验值：
+
+```
+20d92d436553b8e74faf9c5997eea58d7638b1644a2a085e584650ec26892016  OAS-OCR-2026.10.14-ocr.1-full.zip
+5d57fc8cb538879c9689f018459070c3aceaf6d0acca1cc3a09a5f82891557b7  OAS-OCR-2026.10.14-ocr.1-source.zip
+```
+
+**运行步骤**：
+
+1. 用 Windows 解压到**新的短路径**（例如 `C:\yys\OAS-OCR`），不要覆盖已有安装
+2. 进入解压后的 `OAS-OCR-2026.10.14` 目录，双击 `start-oas.bat`
+3. 在 OASX 中连接 `http://127.0.0.1:22388`，配置或迁移自己的任务账号
+4. **不要用旧的 `deploy.yaml` 覆盖本包配置** —— 本版 OCR 与图片服务使用新端口
 
 **同一模拟器上不要同时运行新旧两套自动化**，迁移前先停掉旧任务。
+
+包内不含任何账号配置、失败账本或历史日志；启动器自带完整文件哈希校验。
 
 ---
 
