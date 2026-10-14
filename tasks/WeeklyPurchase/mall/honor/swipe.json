@@ -1,0 +1,9 @@
+[
+  {
+    "itemName": "honor_down",
+    "roiFront": "800,540,40,30",
+    "roiBack": "800,190,40,30",
+    "mode": "default",
+    "description": "荣誉商店向下搜索商品"
+  }
+]

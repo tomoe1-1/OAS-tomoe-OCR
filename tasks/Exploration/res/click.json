@@ -1,0 +1,14 @@
+[
+  {
+    "itemName": "click_settings",
+    "roiFront": "55,662,21,21",
+    "roiBack": "55,662,21,21",
+    "description": "点击设置按钮"
+  },
+  {
+    "itemName": "click_standby_team",
+    "roiFront": "545,222,506,100",
+    "roiBack": "545,222,506,100",
+    "description": "选中候补出战"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "itemName": "harvest_mail",
+    "imageName": "dt_harvest_mail.png",
+    "roiFront": "337,505,37,25",
+    "roiBack": "38,396,1128,157",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "邮件小图标"
+  },
+  {
+    "itemName": "harvest_mail_copy",
+    "imageName": "dt_harvest_mail_copy.png",
+    "roiFront": "257,509,29,21",
+    "roiBack": "192,382,928,190",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "另一种邮件图标"
+  },
+  {
+    "itemName": "harvest_mail_all",
+    "imageName": "dt_harvest_mail_all.png",
+    "roiFront": "69,579,80,67",
+    "roiBack": "28,551,142,144",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "全部收取"
+  },
+  {
+    "itemName": "read_all_mail",
+    "imageName": "dt_read_all_mail.png",
+    "roiFront": "180,605,130,35",
+    "roiBack": "149,588,182,72",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "一键已读所有邮件"
+  },
+  {
+    "itemName": "harvest_mail_confirm",
+    "imageName": "dt_harvest_mail_confirm.png",
+    "roiFront": "687,543,168,64",
+    "roiBack": "687,543,168,64",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "确认收取邮件"
+  },
+  {
+    "itemName": "dt_harvest_mail_copy2",
+    "imageName": "dt_harvest_mail_copy2.png",
+    "roiFront": "1158,18,22,20",
+    "roiBack": "1127,0,61,56",
+    "method": "Template matching",
+    "threshold": 0.9,
+    "description": "右上角的邮件图标"
+  }
+]

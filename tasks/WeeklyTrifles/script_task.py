@@ -1,0 +1,371 @@
+# This Python file uses the following encoding: utf-8
+# @author runhey
+# github https://github.com/runhey
+import time
+from time import sleep
+
+from module.exception import TaskEnd
+from module.logger import logger
+from module.base.timer import Timer
+
+from tasks.GameUi.game_ui import GameUi
+from tasks.GameUi.page import (
+    page_main,
+    page_area_boss,
+    page_secret_zones,
+    page_summon,
+    page_guild,
+    random_click,
+)
+from tasks.WeeklyTrifles.assets import WeeklyTriflesAssets
+from tasks.WeeklyTrifles.page import page_shikigami_share, page_touch_fish
+from tasks.WeeklyTrifles.share_receipt import capture_collection_share, share_done_this_week, save_share_receipt
+from module.exception import TaskRecoveryFailed
+
+
+class ScriptTask(GameUi, WeeklyTriflesAssets):
+
+    def run(self):
+        con = self.config.weekly_trifles.trifles
+        if con.share_collect:
+            self._share_collect()
+        if con.share_area_boss:
+            self._share_area_boss()
+        if con.share_secret:
+            self._share_secret()
+        if con.save_touch_fish:
+            self._save_touch_fish()
+        if con.broken_amulet:
+            self._broken_amulet(con.broken_amulet)
+
+        self.set_next_run(task='WeeklyTrifles', success=True, finish=True)
+        raise TaskEnd('WeeklyTrifles')
+
+    def click_share(self, wechat) -> bool:
+        """
+        点击分享
+        :param wechat:
+        :return:
+        """
+        # 点击分享
+        # self.ui_click(wechat, self.I_WT_QR_CODE)
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_WT_QR_CODE):
+                break
+            if self.appear_then_click(wechat, interval=2.5):
+                continue
+        logger.info('Click share')
+        get_timer = Timer(7)
+        get_timer.start()
+        while 1:
+            self.screenshot()
+            if self.ui_reward_appear_click():
+                logger.info('Get reward')
+                return True
+            if self.appear_then_click(
+                self.I_WT_QR_CODE, self.C_WT_WECHAT, interval=4.8
+            ):
+                continue
+            if get_timer.reached():
+                logger.warning('Share timeout. The reward may have been obtained')
+                return False
+
+    def _save_touch_fish(self):
+        """
+        惠比寿的摸鱼行动
+        :return:
+        """
+        logger.hr('Touch fish start')
+        self.goto_page(page_guild)
+        # 防止入口被折叠
+        fold_timer = Timer(15).start()
+        while 1:
+            if fold_timer.reached():
+                logger.warning('Touch fish guild entry timeout')
+                self.goto_page(page_main)
+                return
+            # 等个折叠窗口展开动画
+            sleep(1)
+            self.screenshot()
+            if self.appear_then_click(self.I_WT_OPEN_FOLD_WINDOW):
+                continue
+            if self.appear(self.I_WT_FOLD_WINDOW):
+                break
+        # 保存次数，后续做了也会邮件返还福运御守
+        self.goto_page(page_touch_fish)
+        self.screenshot()
+        if self.appear(self.I_WT_SAVE_ALL):
+            # DigitCounter 返回 (current, total - current, total)
+            # 第一个元素才是当前拥有的福运御守数量
+            cu_tickts, _, _ = self.O_WT_LUCKY_TICKETS.ocr(self.device.image)
+            logger.info(f'当前的福运御守数量：{cu_tickts}')
+            cost_tickts = self.O_WT_SAVE_COST.ocr(self.device.image)
+            logger.info(f'全部存储需要花费的福运御守数量：{cost_tickts}')
+            if cost_tickts <= 0:
+                logger.warning('Touch fish save cost OCR unavailable')
+                self.goto_page(page_main)
+                return
+            # 只允许存储一次，避免重复点击 I_WT_SAVE_ALL 陷入等待
+            not_save_flag = True
+            get_timer = Timer(7)
+            get_timer.start()
+            while 1:
+                if get_timer.reached():
+                    logger.warning('Touch fish timeout, exit!')
+                    break
+                sleep(0.5)
+                self.screenshot()
+                if self.appear(self.I_WT_LAST_SAVE):
+                    self.click(
+                        random_click(ltrb=(True, False, False, False)), interval=1.5
+                    )
+                    continue
+                if self.appear_then_click(self.I_WT_HAPPY_GET):
+                    continue
+                if cu_tickts >= cost_tickts and not_save_flag:
+                    self.appear_then_click(self.I_WT_SAVE_ALL)
+                    not_save_flag = False
+                    continue
+                if self.appear_then_click(self.I_WT_TF_CONFIRM):
+                    continue
+                if self.appear(self.I_WT_TF_SAVE_SUCCESS) and not self.appear(
+                    self.I_WT_SAVE_ALL
+                ):
+                    logger.info('Touch fish save success')
+                    break
+                if cu_tickts < cost_tickts and not_save_flag:
+                    logger.warning('Touch fish tickts not enough, exit!')
+                    break
+        logger.hr('Touch fish finished')
+        self.goto_page(page_main)
+
+    def _share_collect(self):
+        logger.hr('Share collect')
+        profile = self.config.config_name
+        if share_done_this_week(profile):
+            logger.info('Collection share has a verified receipt this week; skip')
+            return
+        self.goto_page(page_shikigami_share)
+        reward_claimed = False
+        with capture_collection_share(self.device) as receipt:
+            try:
+                receipt.armed = True
+                appeared = self.ui_click_until_appear_or_timeout(
+                    self.I_WT_COLLECT_WECHAT, self.I_WT_QR_CODE, 1.2, 5)
+                if not appeared and not receipt.seen:
+                    raise TaskRecoveryFailed('Collection share dialog or success receipt was not observed')
+                get_timer = Timer(self.device.performance.timeout(7)).start()
+                share_sent = False
+                while True:
+                    self.screenshot()
+                    # Preserve first-share rewards. A repeat share legitimately
+                    # produces only the brief success toast, without an amulet.
+                    if self.appear(self.I_UI_REWARD, threshold=0.6):
+                        if not self.ui_reward_appear_click():
+                            raise TaskRecoveryFailed('Collection share reward claim was blocked')
+                        self._ui_verify(lambda: not self.appear(self.I_UI_REWARD, threshold=0.6),
+                                        [self.I_UI_REWARD])
+                        reward_claimed = True
+                        break
+                    if receipt.seen:
+                        # Give a first-share reward time to appear after its toast.
+                        for _ in range(6):
+                            sleep(0.2)
+                            self.screenshot()
+                            if self.appear(self.I_UI_REWARD, threshold=0.6):
+                                if not self.ui_reward_appear_click():
+                                    raise TaskRecoveryFailed('Collection share reward claim was blocked')
+                                self._ui_verify(lambda: not self.appear(self.I_UI_REWARD, threshold=0.6),
+                                                [self.I_UI_REWARD])
+                                reward_claimed = True
+                                break
+                        break
+                    if get_timer.reached():
+                        raise TaskRecoveryFailed('Collection share had neither success toast nor reward')
+                    if not share_sent and self.appear(self.I_WT_QR_CODE):
+                        if not self.appear_then_click(self.I_WT_QR_CODE, self.C_WT_WECHAT, interval=0):
+                            raise TaskRecoveryFailed('Collection share confirmation was blocked')
+                        share_sent = True
+            finally:
+                if reward_claimed or receipt.seen:
+                    save_share_receipt(profile, 'reward_claimed' if reward_claimed else 'share_success')
+                    logger.info('Collection share verified and saved; no repeat reward required')
+        # Navigation failures remain distinct from the saved share receipt.
+        # Other weekly subtasks must still execute and confirm their own work.
+        self.goto_page(page_main)
+
+    def _share_area_boss(self):
+        """
+        地鬼分享
+        :return:
+        """
+        logger.hr('Share area boss')
+        self.goto_page(page_area_boss)
+
+        # 一路进去
+        obtained = False
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_WT_AB_WECHAT):
+                break
+            if self.appear(self.I_WT_NO_DAY):
+                obtained = True
+                break
+            if self.click(self.C_WT_AB_CLICK, interval=1):
+                continue
+            if self.appear_then_click(self.I_WT_DAY_BATTLE, interval=2):
+                continue
+            if self.appear_then_click(self.I_WT_SHARE_AB, interval=1):
+                continue
+        # 再次检查一次这周有没有领取
+        time.sleep(1)
+        self.screenshot()
+        if not self.appear(self.I_WT_AB_JADE):
+            logger.warning('This week has been obtained')
+            obtained = True
+        if not obtained:
+            # 点击分享
+            self.click_share(self.I_WT_AB_WECHAT)
+        self.goto_page(page_main)
+
+    def _share_secret(self):
+        """
+        秘闻分享
+        :return:
+        """
+        logger.hr('Share secret')
+        self.goto_page(page_secret_zones)
+        # 一路进去
+        valid = False
+        while 1:
+            self.screenshot()
+            if self.appear(self.I_WT_SE_WECHAT):
+                self.wait_until_stable(self.I_WT_SE_WECHAT, skip_first_screenshot=True)
+                break
+            if self.appear_then_click(self.I_WT_ENTER_SE, interval=1):
+                continue
+            if self.appear_then_click(self.I_WT_SE_SHARE, interval=5):
+                valid = True
+                continue
+            if self.appear(self.I_WT_SE_RANK) and (not valid):
+                # 如果出现排名但是没有出现分享，那就是还没打，退出
+                self.wait_until_stable(self.I_WT_SE_SHARE, skip_first_screenshot=True)
+                if self.appear(self.I_WT_SE_SHARE):
+                    continue
+                logger.warning('This week has not been obtained')
+                self.goto_page(page_main)
+                return
+        logger.info('Enter secret')
+        # 判断是否已经领取
+        self.screenshot()
+        obtained = False
+        if not self.appear(self.I_WT_SE_JADE):
+            obtained = True
+            logger.warning('This week has been obtained')
+        # 点击分享
+        if not obtained:
+            self.click_share(self.I_WT_SE_WECHAT)
+        # 返回
+        self.goto_page(page_main)
+
+    def _broken_amulet(self, dest_num: int):
+        """
+
+        :param dest_num:
+        :return:
+        """
+
+        def exit_amulet():
+            while True:
+                self.screenshot()
+                if self.appear(self.I_BM_ENTER, interval=0.6):
+                    break
+                if self.appear_then_click(self.I_BM_CONFIRM, interval=1):
+                    continue
+                self.click(random_click(ltrb=(False, False, True, False)), interval=1.5)
+            logger.info('Exit broken amulet')
+
+        logger.hr('Broken amulet')
+        self.goto_page(page_summon)
+        self.screenshot()
+        real_num = self.O_BA_AMOUNT_1.ocr(self.device.image)
+        if real_num <= 0:
+            logger.warning('No broken amulet')
+            return
+        logger.info(f'Broken amulet: {real_num}')
+        count = 0
+        self.wait_until_appear(self.I_BM_ENTER)
+        logger.info('Enter broken amulet')
+        while count < dest_num:
+            self.screenshot()
+            real_num = self.O_BA_AMOUNT_1.ocr(self.device.image)
+            if real_num <= 0:
+                exit_amulet()
+                return
+            if self.appear_then_click(
+                self.I_BM_ENTER, interval=1
+            ) or self.appear_then_click(self.I_BM_AGAIN, interval=1):
+                sleep(0.4)  # 等待动画开始
+                timeout_timer = Timer(5).start()
+                # 随机点击直到再次召唤出现或者超时
+                while not timeout_timer.reached():
+                    if not self.click(random_click(), interval=0.8):
+                        self.device.click_record_clear()
+                        continue
+                    self.screenshot()
+                    if self.appear(self.I_BM_AGAIN, interval=0.8):
+                        break
+                else:
+                    logger.warning(
+                        f'Wait for again timeout:Count[{count}], Remain[{real_num}]'
+                    )
+                    exit_amulet()
+                    return
+            else:
+                # 既没有出现召唤破碎符咒也没有出现再次召唤, 则退出(一般不会出现这种情况, 只是为了异常处理)
+                exit_amulet()
+                return
+            x_10, _, _, _ = self.O_BA_TIMES.ocr(self.device.image, '10次')
+            x_50, _, _, _ = self.O_BA_TIMES.ocr(self.device.image, '50次')
+            self.I_BMT_CHECK.match(
+                self.device.image, frame_id=self.device.image_frame_id
+            )
+            x_check, y_check, width_check, height_check = self.I_BMT_CHECK.roi_front
+            selected_10 = min(abs(x_10 - x_check), abs(x_50 - x_check)) == abs(
+                x_10 - x_check
+            )
+            logger.info(f'Current selected {"10" if selected_10 else "50"} amulet')
+            count += 10 if selected_10 else 50
+            logger.info(f'Broken amulet:Count[{count}], Remain[{real_num}]')
+            # 一次50票不超过限制且当前选择的是10票则切换50票
+            if count + 50 < dest_num and selected_10:
+                logger.hr('Switch to 50 amulet')
+                self.device.click(
+                    x=x_50 - width_check // 2,
+                    y=y_check + height_check // 2,
+                    control_name='Click_50',
+                )
+                self.device.click_record_clear()
+            # 一次50票会超过限制且当前选择的是50票则切换10票
+            if count + 50 >= dest_num and not selected_10:
+                logger.hr('Switch to 10 amulet')
+                self.device.click(
+                    x=x_10 - width_check // 2,
+                    y=y_check + height_check // 2,
+                    control_name='Click_10',
+                )
+                self.device.click_record_clear()
+        # 正常结束且还有票, 则执行一次退出
+        exit_amulet()
+
+
+if __name__ == '__main__':
+    from module.config.config import Config
+    from module.device.device import Device
+
+    c = Config('oas1')
+    d = Device(c)
+    t = ScriptTask(c, d)
+    t.screenshot()
+    t.run()

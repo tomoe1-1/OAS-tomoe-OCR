@@ -1,0 +1,25 @@
+{
+  "name": "layer_list",
+  "direction": "vertical",
+  "type": "ocr",
+  "roiBack": "128,103,62,586",
+  "description": "永生之海层数列表",
+  "list": [
+    {
+      "itemName": "壹",
+      "roiFront": "128,103,62,107"
+    },
+    {
+      "itemName": "贰",
+      "roiFront": "128,214,62,107"
+    },
+    {
+      "itemName": "叁",
+      "roiFront": "128,315,62,107"
+    },
+    {
+      "itemName": "肆",
+      "roiFront": "128,418,62,107"
+    }
+  ]
+}

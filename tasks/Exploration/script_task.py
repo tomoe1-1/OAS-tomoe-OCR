@@ -1,0 +1,233 @@
+# This Python file uses the following encoding: utf-8
+# @author AzurTian
+import time
+from datetime import datetime, timedelta
+
+from module.logger import logger
+from tasks.Exploration.base import BaseExploration
+from tasks.Exploration.config import AutoRotate, UserStatus, ExplorationLevel
+import tasks.Exploration.page as pages
+from tasks.GameUi.page_definition import Page
+from typing import Callable
+
+
+class InviteFailedException(Exception):
+    pass
+
+class ScriptTask(BaseExploration):
+    """探索"""
+
+    def confirm_page(self, page: Page, skip_first_screenshot: bool = True) -> bool:
+        """探索页面跳转更改为单帧确认"""
+        self.maybe_screenshot(skip_first_screenshot)
+        return self.match_page_once(page)
+
+    def arrive_end(self) -> bool:
+        # 28章直接匹配
+        if self._config.exploration_config.exploration_level == ExplorationLevel.EXPLORATION_28:
+            return self.appear(self.I_SWIPE_END)
+        return super().arrive_end()
+
+    @property
+    def exp_page_handle_dict(self) -> dict[Page, Callable]:
+        return {
+            pages.page_exp_main: self.run_on_exp_main,
+            pages.page_exp_settings: self.run_on_exp_settings,
+            pages.page_exp_exit: self.run_on_exp_exit,
+            pages.page_exp_entrance: self.run_on_exp_entrance,
+            pages.page_exploration: self.run_on_exp,
+            pages.page_battle_prepare: self.run_on_battle,
+            pages.page_battle: self.run_on_battle,
+            pages.page_battle_result: self.run_on_battle,
+            pages.page_reward: self.run_on_reward,
+            pages.page_battle_team: self.run_on_battle_team
+        }
+
+    def run(self):
+        logger.hr('exploration')
+        self.pre_process()
+        self.exec_exp_page()
+        self.post_process()
+
+    def exec_exp_page(self):
+        pages.page_battle_team_exit = self.navigator.resolve_page(pages.page_battle_team_exit)
+        pages.page_battle_team_exit.connect(pages.page_exp_entrance, self.I_UI_CONFIRM, key="page_battle_team_exit->page_exp_entrance")
+        while True:
+            self.screenshot()
+            if self.close_chat_sidebar_first():
+                continue
+            current_page = self.get_current_page()
+            if current_page is None:
+                time.sleep(0.5)
+                continue
+            if self.check_exit(current_page):
+                self.appear_then_click(self.I_UI_CANCEL, interval=0.8)  # 处理队长结束的邀请弹窗
+                break
+            handle = self.exp_page_handle_dict.get(current_page, None)
+            if handle is None:
+                self.goto_page(pages.page_exploration)
+                continue
+            try:
+                handle()
+                self.pre_page = current_page  # 更新上一个页面为当前页面
+            except InviteFailedException as e:
+                logger.warning(e)
+                break
+
+    def close_chat_sidebar_first(self) -> bool:
+        """黄色返回不存在时，优先关闭误开的聊天侧栏。使用当前截图。"""
+        if self.appear(self.I_UI_BACK_YELLOW):
+            return False
+        if self.appear_then_click(self.I_CHAT_CLOSE_BUTTON, interval=1.5):
+            logger.info('Exploration: close chat sidebar before page detection')
+            return True
+        return False
+
+    def run_on_exp_main(self):
+        if self.pre_page and self.pre_page != pages.page_exp_main:
+            # 防止因延迟过大, 一直在主界面和奖励页面切换导致too many click
+            self.device.click_record_clear()
+        if self.collect_reward():
+            return
+        if self.user_status != UserStatus.ALONE:
+            if self.fire_monster_type == 'boss':
+                return
+            if not self.appear(self.I_TEAM_EMOJI):
+                logger.info('Friend disappeared, quit')
+                self.quit_exp_main()
+                return
+        if self.switch_rotate() or self.user_status == UserStatus.MEMBER:
+            return
+        fire_button = self.get_fire_button()
+        if fire_button is not None and self.fire(fire_button):
+            return
+        if self.fire_monster_type == 'boss':
+            return
+        # 地图上刷不出怪时右滑找下一屏。滑动次数由 arrive_end 自己记账,
+        # 不再从会被防连点上限拦死的 click_record 里数(见 EXPLORATION_SCROLL_LIMIT)。
+        self._exp_scroll_add(self.S_SWIPE_BACKGROUND_RIGHT.name)
+        frame = self.device.image_frame_id
+        generation = self.device._escape_generation
+        invitation = getattr(self.device, '_accepted_invitation_generation', 0)
+        if (self.swipe(self.S_SWIPE_BACKGROUND_RIGHT, interval=1.5)
+                and self._confirm_empty_end(frame, generation, invitation)):
+            self.quit_exp_main()
+
+    def _confirm_empty_end(self, frame, generation, invitation) -> bool:
+        """Confirm an empty map end on two distinct frames after the swipe."""
+        from tasks.GameUi.page_definition import sort_pages_by_priority
+        for _ in range(2):
+            # Let the map movement settle before detecting newly exposed targets.
+            time.sleep(0.3)
+            self.screenshot()
+            fresh = self.device.image_frame_id
+            if (fresh is None or fresh == frame
+                    or self.device._escape_generation != generation
+                    or getattr(self.device, '_accepted_invitation_generation', 0) != invitation):
+                return False
+            frame = fresh
+            candidates = [(index, page) for index, page in enumerate(
+                self.navigator.all_pages(self._default_detect_categories()))
+                if self.match_page_once(page)]
+            matched = sort_pages_by_priority(candidates)
+            if not matched or matched[0] != pages.page_exp_main:
+                return False
+            # Observe targets without dispatching input or marking a boss attacked.
+            if self.appear(self.I_BOSS_BATTLE_BUTTON) or self.search_up_fight() is not None:
+                return False
+            if (self.appear(self.I_E_REWARD_BOX_SMALL)
+                    or self.appear(self.I_E_REWARD_BOX_BIG)
+                    or (self._config.exploration_config.collect_paper_reward
+                        and self.appear(self.I_BATTLE_REWARD))):
+                return False
+        # arrive_end() spends the scroll budget once the limit is reached, and it
+        # must therefore run exactly once, after both frames read as an empty
+        # map. Calling it per frame zeroed the tally mid-count, so the budget
+        # could never complete and the fourth swipe hit the repeat-click fence
+        # (the 09-26 deadlock that EXPLORATION_SCROLL_LIMIT exists to prevent).
+        if not self.arrive_end():
+            return False
+        logger.info('Exploration map end confirmed empty in two fresh frames')
+        return True
+
+    def run_on_exp_entrance(self):
+        self.collect_treasure_box()
+        self.fire_monster_type = ''  # 入口处重置怪物类型
+        self.need_exit = False
+        match self.user_status:
+            case UserStatus.LEADER:
+                if self.check_and_invite(self._config.invite_config.default_invite):
+                    return
+                if datetime.now() - self.wait_start_time >= timedelta(seconds=10) or self.current_count == 0:
+                    self.enter_team()
+            case UserStatus.ALONE:
+                self.goto_page(pages.page_exp_main)
+            case UserStatus.MEMBER:
+                self.check_then_accept()
+                self.device.stuck_record_clear()
+
+    def run_on_exp(self):
+        self.fire_monster_type = ''  # 入口处重置怪物类型
+        self.need_exit = False
+        match self.user_status:
+            case UserStatus.LEADER:
+                # TODO: 队长宝箱收集(游戏问题导致邀请和宝箱出现时间不一致, 一旦先点中宝箱就会出现卡死), 当前先取消队长在探索界面的宝箱收集
+                if self.check_and_invite(self._config.invite_config.default_invite):
+                    return
+                if datetime.now() - self.wait_start_time >= timedelta(seconds=10) or self.current_count == 0:
+                    self.goto_page(pages.page_exp_entrance)
+            case UserStatus.ALONE:
+                self.collect_treasure_box()
+                self.goto_page(pages.page_exp_main)
+            case UserStatus.MEMBER:
+                self.collect_treasure_box()
+                self.check_then_accept()
+                self.device.stuck_record_clear()
+
+    def run_on_battle(self):
+        self.run_general_battle(self._config.general_battle_config, exit_matcher=pages.page_exp_main)
+        self._match_end.refresh()  # 防止同一张图多次打怪导致误以为探索结束
+        self.wait_start_time = datetime.now()  # 队友等待时间重置
+        # 打到了怪, 说明这一屏还有内容。滑动计数归零, 下一屏可以重新滑满额度。
+        self._exp_scroll_reset()
+        self._exp_scroll_name_reset()
+
+    def run_on_reward(self):
+        if self.user_status == UserStatus.MEMBER:
+            self.run_on_battle()
+        else:
+            self.click(self._battle_settlement_click(), interval=0.8)
+
+    def run_on_battle_team(self):
+        self.need_exit = False
+        match self.user_status:
+            case UserStatus.LEADER:
+                if self.run_invite(self._config.invite_config, self.current_count == 0):
+                    return
+                raise InviteFailedException('Invite failed, quit')
+            case UserStatus.ALONE:
+                self.goto_page(pages.page_exp_main)
+
+    def run_on_exp_settings(self):
+        if self._config.exploration_config.auto_rotate == AutoRotate.no:
+            self.goto_page(pages.page_exp_main)
+            return
+        self.fill_shikigami()
+        self.appear_then_click(self.I_E_AUTO_ROTATE_OFF, interval=0.8)
+
+    def run_on_exp_exit(self):
+        if not self.need_exit: # 不需要退出则点取消, 通常是直接在探索界面启动脚本(或退出期间在主界面再次识别到需要攻击的怪物)
+            self.appear_then_click(self.I_E_EXIT_CANCEL, interval=0.8)
+            return
+        self.appear_then_click(self.I_E_EXIT_CONFIRM, interval=0.8)
+        self.wait_start_time = datetime.now()  # 队友等待时间重置
+
+
+if __name__ == "__main__":
+    from module.config.config import Config
+    from module.device.device import Device
+
+    config = Config('丰年2')
+    device = Device(config)
+    t = ScriptTask(config, device)
+    t.run()

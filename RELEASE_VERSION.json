@@ -1,0 +1,28 @@
+{
+  "repository": "tomoe1-1/OAS-tomoe",
+  "commit": "8b488d6824b705065e8be79b37bdac0fc1f7d239",
+  "branch": "self",
+  "release": "2026.10.14-ocr.1",
+  "built_at": "2026-10-14T19:59:08.117324+08:00",
+  "runtime": "bundled Python 3.10",
+  "auto_update": false,
+  "package_patches": "fixed-package-git-isolation-v1+ocr-validation-v1",
+  "web_port": 22388,
+  "variant": "OCR validation improvements",
+  "source_working_changes": [
+    "tasks/Delegation/script_task.py",
+    "tasks/GameUi/activity_map_exit.py",
+    "tasks/GameUi/default_pages.py",
+    "tasks/GameUi/settlement_prompt.py",
+    "tasks/Hunt/kirin/kirin_assist_confirm.png",
+    "tasks/Hunt/kirin/kirin_assist_question.png",
+    "tasks/Hunt/kirin_assist.py",
+    "tasks/Hunt/script_task.py",
+    "tasks/Delegation/d/dialogue_panel.png",
+    "tasks/Delegation/d/dialogue_skip.png",
+    "tasks/Delegation/dialogue.py",
+    "tasks/GameUi/page/version_map_trial_label.png"
+  ],
+  "parent_portable_release": "2026.10.14",
+  "parent_built_at": "2026-10-14T15:26:15.115917+08:00"
+}

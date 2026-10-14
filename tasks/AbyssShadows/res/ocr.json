@@ -1,0 +1,101 @@
+[
+  {
+    "itemName": "damage",
+    "roiFront": "50,110,300,50",
+    "roiBack": "50,110,300,50",
+    "mode": "Digit",
+    "method": "CF_HSV(0980B4,1ED2FF)",
+    "keyword": "",
+    "description": "伤害"
+  },
+  {
+    "itemName": "dragon_done",
+    "roiFront": "130,160,180,360",
+    "roiBack": "130,160,180,360",
+    "mode": "Single",
+    "method": "CF_RGB(CCCCCC,FFFFFF)",
+    "keyword": "封印",
+    "description": "神龙暗域已完成"
+  },
+  {
+    "itemName": "peacock_done",
+    "roiFront": "420,160,180,360",
+    "roiBack": "420,160,180,360",
+    "mode": "Single",
+    "method": "CF_RGB(CCCCCC,FFFFFF)",
+    "keyword": "封印",
+    "description": "孔雀暗域已完成"
+  },
+  {
+    "itemName": "fox_done",
+    "roiFront": "680,160,180,360",
+    "roiBack": "680,160,180,360",
+    "mode": "Single",
+    "method": "CF_RGB(CCCCCC,FFFFFF)",
+    "keyword": "封印",
+    "description": "白藏主暗域已完成"
+  },
+  {
+    "itemName": "leopard_done",
+    "roiFront": "1000,160,180,360",
+    "roiBack": "1000,160,180,360",
+    "mode": "Single",
+    "method": "CF_RGB(CCCCCC,FFFFFF)",
+    "keyword": "封印",
+    "description": "黑豹暗域已完成"
+  },
+  {
+    "itemName": "4_died",
+    "roiFront": "435,432,91,45",
+    "roiBack": "435,432,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  },
+  {
+    "itemName": "5_died",
+    "roiFront": "678,432,91,45",
+    "roiBack": "678,432,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  },
+  {
+    "itemName": "6_died",
+    "roiFront": "920,431,91,45",
+    "roiBack": "920,431,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  },
+  {
+    "itemName": "2_died",
+    "roiFront": "526,309,91,45",
+    "roiBack": "526,309,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  },
+  {
+    "itemName": "3_died",
+    "roiFront": "839,309,91,45",
+    "roiBack": "839,309,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  },
+  {
+    "itemName": "1_died",
+    "roiFront": "674,168,91,45",
+    "roiBack": "674,168,91,45",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "已击破",
+    "description": ""
+  }
+]

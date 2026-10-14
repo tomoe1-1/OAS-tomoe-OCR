@@ -1,0 +1,31 @@
+{
+  "version": "2026.10.14-ocr.1",
+  "changes": {
+    "module/ocr/base_ocr.py": {
+      "before_sha256": "210e77556c7bffcca72298af81596211ed9a850869f616ca25523999e7fa8b6a",
+      "after_sha256": "3fd6e998676ba60ffcba6692a2a0bcfa9ac2e5e0d80ffabdd664cbd8deafa9a5"
+    },
+    "module/ocr/sub_ocr.py": {
+      "before_sha256": "6cf3e82d5c5d7162a1082c119be0d251e3e9a6445b9258a39b6e977def3bf80d",
+      "after_sha256": "6a7d8472d08bd495da62ab0f68fc8daca2ceae4f6476e0d494fc9bc893eb05b1"
+    },
+    "module/ocr/ppocr.py": {
+      "before_sha256": "37124200a05eaa9e88911c4a7bce15fcdc60d9925f91d3da5ba4d8aa0d0b5a9e",
+      "after_sha256": "e3e0f77c8c6909ee61adfda3a9fa7091397f63754da8743dc570be95bf69aba4"
+    },
+    "module/ocr/text_validation.py": {
+      "before_sha256": null,
+      "after_sha256": "2b5088ba79087b377a33537a97e8dcc9e732ff8438878321152ae9c628872453"
+    }
+  },
+  "engine": "PP-OCRv6 medium ONNX (retained)",
+  "behavior": [
+    "complete keyword and adjacent box matching",
+    "one target per match; correct polygon union",
+    "full numeric grammar for low confidence rescue",
+    "empty or exactly uniform image rejection"
+  ],
+  "high_confidence_numeric_legacy_behavior": true,
+  "game_verified": false,
+  "original_install_modified": false
+}

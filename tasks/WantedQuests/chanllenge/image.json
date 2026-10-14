@@ -1,0 +1,29 @@
+[
+  {
+    "itemName": "wqc_lock",
+    "imageName": "chanllenge_wqc_lock.png",
+    "roiFront": "1086,510,21,26",
+    "roiBack": "1073,500,44,48",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
+  },
+  {
+    "itemName": "wqc_unlock",
+    "imageName": "chanllenge_wqc_unlock.png",
+    "roiFront": "1086,510,21,26",
+    "roiBack": "1073,500,44,48",
+    "method": "Template matching",
+    "threshold": 0.8,
+    "description": "description"
+  },
+  {
+    "itemName": "wqc_fire",
+    "imageName": "chanllenge_wqc_fire.png",
+    "roiFront": "1088,582,85,49",
+    "roiBack": "1058,550,147,139",
+    "method": "Template matching",
+    "threshold": 0.7,
+    "description": "挑战"
+  }
+]

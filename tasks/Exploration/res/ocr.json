@@ -1,0 +1,38 @@
+[
+  {
+    "itemName": "e_exploration_level_number",
+    "roiFront": "1065,203,124,352",
+    "roiBack": "1065,203,124,352",
+    "mode": "Full",
+    "method": "Default",
+    "keyword": "",
+    "description": "识别当前显示的章节"
+  },
+  {
+    "itemName": "e_alternate_number",
+    "roiFront": "1092,122,69,32",
+    "roiBack": "1092,122,69,32",
+    "mode": "DigitCounter",
+    "method": "Default",
+    "keyword": "",
+    "description": "候补出战的数量"
+  },
+  {
+    "itemName": "realm_raid_number",
+    "roiFront": "739,11,78,37",
+    "roiBack": "739,11,78,37",
+    "mode": "DigitCounter",
+    "method": "Default",
+    "keyword": "",
+    "description": "探索右上角 突破卷的数量"
+  },
+  {
+    "itemName": "realm_raid_number1",
+    "roiFront": "898,10,94,38",
+    "roiBack": "898,10,94,38",
+    "mode": "DigitCounter",
+    "method": "Default",
+    "keyword": "",
+    "description": "探索副本入口页 突破卷的数量(顶栏与章节列表页布局不同, 必须独立框选)"
+  }
+]

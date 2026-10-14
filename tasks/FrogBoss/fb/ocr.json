@@ -1,0 +1,38 @@
+[
+  {
+    "itemName": "left_count",
+    "roiFront": "326,469,69,31",
+    "roiBack": "326,469,69,31",
+    "mode": "Digit",
+    "method": "Default",
+    "keyword": "",
+    "description": "Ocr-description"
+  },
+  {
+    "itemName": "right_count",
+    "roiFront": "1139,472,77,32",
+    "roiBack": "1139,472,77,32",
+    "mode": "Digit",
+    "method": "Default",
+    "keyword": "",
+    "description": "Ocr-description"
+  },
+  {
+    "itemName": "time_remain",
+    "roiFront": "705,533,91,35",
+    "roiBack": "705,533,91,35",
+    "mode": "Duration",
+    "method": "Default",
+    "keyword": "",
+    "description": "Ocr-description"
+  },
+  {
+    "itemName": "frog_last_time",
+    "roiFront": "120,154,160,30",
+    "roiBack": "120,154,160,30",
+    "mode": "Single",
+    "method": "Default",
+    "keyword": "",
+    "description": "上一句对局时间"
+  }
+]

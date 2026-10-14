@@ -1,0 +1,202 @@
+# This Python file uses the following encoding: utf-8
+# @author runhey
+# github https://github.com/runhey
+from module.base.timer import Timer
+from module.exception import RequestHumanTakeover, GameTooManyClickError, GameStuckError, TaskRecoveryFailed
+from module.logger import logger
+from tasks.GameUi.assets import GameUiAssets
+from tasks.GameUi.courtyard import courtyard_visible, expand_courtyard_scroll
+from tasks.GameUi.chess_battle import ChessBattleNavigationMixin
+from tasks.Restart.assets import RestartAssets
+from tasks.base_task import BaseTask
+
+
+class LoginService(
+    ChessBattleNavigationMixin,
+    BaseTask,
+    RestartAssets,
+    GameUiAssets,
+):
+    character: str
+
+    def __init__(self, *wargs, **kwargs):
+        super().__init__(*wargs, **kwargs)
+        self.character = self.config.restart.login_character_config.character
+        self.O_LOGIN_SPECIFIC_SERVE.keyword = self.character
+
+    def _login_enter_game_click(self, target, interval=3) -> bool:
+        """Allow one extra enter-game input after an unchanged first input."""
+        try:
+            return self.ocr_appear_click(target, interval=interval)
+        except TaskRecoveryFailed as error:
+            previous = getattr(self.device, '_verified_click', None)
+            if (str(error) != f'Click state unchanged; repeat blocked: {target.name}'
+                    or target not in (self.O_LOGIN_ENTER_GAME, self.O_LOGIN_ENTER_GAME_OLD)
+                    or getattr(self, '_login_enter_game_retry_used', False)
+                    or not previous or previous['name'] != target.name
+                    or previous['changed']):
+                raise
+            generation = getattr(self.device, '_escape_generation', 0)
+            for _ in range(2):
+                self.screenshot()
+                if getattr(self.device, '_escape_generation', 0) != generation:
+                    raise error
+                if courtyard_visible(self) or not self.ocr_appear(target):
+                    return False
+            if getattr(self.device, '_verified_click', None) is not previous:
+                return False
+            # This allowance covers both OCR variants for the whole login call.
+            # Consume it before dispatch; a second failure must not replay input.
+            self._login_enter_game_retry_used = True
+            self.device._verified_click = None
+            logger.warning('Enter game unchanged; retry once after two fresh confirmations')
+            x, y = target.coord()
+            return self.device.click(x=x, y=y, control_name=target.name) is not False
+
+    def _app_handle_login(self) -> bool:
+        """
+        最终是在庭院界面
+        :return:
+        """
+        self._login_enter_game_retry_used = False
+        logger.hr('App login')
+        self.device.stuck_record_add('LOGIN_CHECK')
+
+        confirm_timer = Timer(1.5, count=2).start()
+        orientation_timer = Timer(10)
+        skip_login_animation = True
+        login_success = False
+
+        while 1:
+            if not login_success and orientation_timer.reached():
+                self.device.get_orientation()
+                orientation_timer.reset()
+
+            self.screenshot()
+            if self.appear_then_click(
+                self.I_RETURN_CHESS_CANCEL,
+                interval=0.8,
+            ):
+                logger.info(
+                    'Cancel returning to interrupted Chess battle; '
+                    'wait for result flow'
+                )
+                continue
+            if self.appear(self.I_CHECK_CHESS):
+                logger.info(
+                    'Login recovery reached Chess lobby; '
+                    'finish recovery without returning to courtyard'
+                )
+                return True
+            if self.chess_result_flow_visible():
+                logger.info(
+                    'Login recovery detected unfinished Chess result flow'
+                )
+                self.return_to_chess_lobby()
+                return True
+            if self.appear_then_click(self.I_CANCEL_BATTLE, interval=0.8):
+                logger.info('Cancel continue battle')
+                continue
+            if courtyard_visible(self) and not self.appear(self.I_MAIN_GOTO_SHIKIGAMI_RECORDS):
+                logger.info('The main had already appeared, but shikigami records had not yet appeared')
+                if expand_courtyard_scroll(self):
+                    continue
+            if self.appear(self.I_MAIN_GOTO_SHIKIGAMI_RECORDS, interval=0.2):
+                if confirm_timer.reached():
+                    logger.info('Login to main confirm (shikigami records button appears)')
+                    break
+            else:
+                confirm_timer.reset()
+            if self.appear(self.I_MAIN_GOTO_SHIKIGAMI_RECORDS, interval=0.5):
+                logger.info('Login success: shikigami records button appears')
+                login_success = True
+            if self.appear(self.I_HARVEST_ZIDU, interval=1):
+                self.I_HARVEST_ZIDU.roi_front[0] -= 200
+                self.I_HARVEST_ZIDU.roi_front[1] -= 200
+                if self.click(self.I_HARVEST_ZIDU, interval=2):
+                    logger.info('Close zidu')
+                continue
+            if self.appear_then_click(self.I_UI_CONFIRM_SAMLL, interval=2.5):
+                logger.info('Soul overflow confirm')
+                continue
+            if self.appear_then_click(self.I_LOGIN_LOAD_DOWN, interval=1):
+                logger.info('Download inbetweening')
+                continue
+            if self.appear_then_click(self.I_WATCH_VIDEO_CANCEL, interval=0.6):
+                logger.info('Close video')
+                continue
+            if self.appear_then_click(self.I_LOGIN_RED_CLOSE, interval=0.6):
+                logger.info('Close red close')
+                continue
+            if self.appear_then_click(self.I_LOGIN_YELLOW_CLOSE, interval=0.6):
+                logger.info('Close yellow close')
+                continue
+            if self.appear_then_click(self.I_LOGIN_LOGIN_GOTO_BIND_PHONE):
+                while 1:
+                    self.screenshot()
+                    if self.appear_then_click(self.I_LOGIN_LOGIN_CANCEL_BIND_PHONE):
+                        logger.info("Close bind phone")
+                        break
+                continue
+            from tasks.Component.GeneralInvite.assets import GeneralInviteAssets as gia
+            if self.appear_then_click(gia.I_I_REJECT, interval=0.8):
+                logger.info("reject invites")
+                continue
+            if self.appear_then_click(self.I_LOGIN_LOGIN_ONMYOJI_GENIE):
+                logger.info("click onmyoji genie")
+                continue
+            if self.appear(self.I_LOGIN_SPECIFIC_SERVE, interval=0.6) \
+                    and self.ocr_appear_click(self.O_LOGIN_SPECIFIC_SERVE, interval=0.6):
+                while True:
+                    self.screenshot()
+                    if self.appear(self.I_LOGIN_SPECIFIC_SERVE):
+                        self.click(self.C_LOGIN_ENSURE_LOGIN_CHARACTER_IN_SAME_SVR, interval=2)
+                        continue
+                    break
+                logger.info('login specific user')
+                continue
+
+            if self.appear(self.I_CREATE_ACCOUNT):
+                logger.warning('Appear create account')
+                raise GameStuckError('Appear create account')
+            if self.appear(self.I_CHARACTARS, interval=1):
+                logger.info('误入区服设置')
+                self.device.click(x=106, y=535)
+                continue
+            if self.appear(self.I_EARLY_SERVER) and self.appear_then_click(self.I_EARLY_SERVER_CANCEL):
+                logger.info('Cancel switch from early server to normal server')
+                continue
+
+            if self.appear(self.I_LOGIN_8, interval=0.6): # 进入登录页面后不再处理登录动画逻辑
+                skip_login_animation = False
+            if skip_login_animation:
+                if self.ocr_appear_click(self.O_LOGIN_ANIMATION_SKIP, interval=2.5):  # 点击跳过登录动画
+                    continue
+                self.click(self.C_LOGIN_ANIMATION_CENTER, interval=5)  # 每5秒点击一次屏幕中央
+
+            if self._login_enter_game_click(self.O_LOGIN_ENTER_GAME, interval=3) or self._login_enter_game_click(self.O_LOGIN_ENTER_GAME_OLD, interval=3):
+                skip_login_animation = False  # 进入登录页面后不再处理登录动画逻辑
+                self.wait_until_appear(self.I_LOGIN_SPECIFIC_SERVE, True, wait_time=5)
+                continue
+            if self.appear(self.I_LOGIN_SCROOLL_CLOSE) or self.appear(self.I_LOGIN_SCROOLL_OPEN):
+                return login_success
+
+    def app_handle_login(self) -> bool:
+        self.device.stuck_record_clear()
+        self.device.click_record_clear()
+        try:
+            with self.device.login_wait():
+                self._app_handle_login()
+            return True
+        except (GameTooManyClickError, GameStuckError) as e:
+            logger.warning(e)
+            self.device.app_stop()
+            self.device.app_start()
+
+        logger.critical('Login failed')
+        logger.critical('Onmyoji server may be under maintenance, or you may lost network connection')
+        raise RequestHumanTakeover
+
+    def set_specific_usr(self, character: str):
+        self.character = character
+        self.O_LOGIN_SPECIFIC_SERVE.keyword = character

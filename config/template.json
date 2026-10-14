@@ -1,0 +1,2132 @@
+{
+  "config_name": "oas",
+  "running_task": "",
+  "script": {
+    "device": {
+      "serial": "auto",
+      "handle": "",
+      "package_name": "auto",
+      "screenshot_method": "auto",
+      "control_method": "minitouch",
+      "adb_restart": false,
+      "emulatorinfo_type": "auto",
+      "emulatorinfo_name": "",
+      "emulatorinfo_path": "",
+      "emulator_window_minimize": false,
+      "run_background_only": false,
+      "low_spec_mode": false,
+      "continuous_task_rest_enable": false,
+      "continuous_task_rest_interval": "60,120",
+      "resource_precache_enable": false
+    },
+    "error": {
+      "handle_error": true,
+      "error_repeated": false,
+      "save_error": true,
+      "screenshot_length": 1,
+      "notify_enable": false,
+      "notify_config": "provider: null"
+    },
+    "optimization": {
+      "screenshot_interval": 0.3,
+      "combat_screenshot_interval": 1.0,
+      "task_hoarding_duration": 0,
+      "when_task_queue_empty": "goto_main",
+      "close_game_limit_time": "00:30:00",
+      "close_emulator_limit_time": "00:30:00",
+      "emulator_startup_lead_time": "00:02:00",
+      "schedule_rule": "Filter"
+    }
+  },
+  "restart": {
+    "scheduler": {
+      "enable": true,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 0,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:05:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "restart_config": {
+      "enable_daily": true
+    },
+    "tasks_config_reset": {
+      "reset_task_datetime_enable": false,
+      "reset_task_datetime": "2023-01-01 00:00:00"
+    },
+    "login_character_config": {
+      "character": ""
+    }
+  },
+  "global_game": {
+    "emergency": {
+      "friend_invitation": "accept",
+      "when_network_abnormal": "wait_10s",
+      "when_network_error": "restart",
+      "home_client_clear": true
+    },
+    "costume_config": {
+      "costume_main_type": [
+        "costume_main"
+      ],
+      "costume_realm_type": "costume_realm_default",
+      "costume_theme_type": "costume_theme_default",
+      "costume_shikigami_type": "costume_shikigami_default",
+      "costume_sign_type": "costume_sign_default",
+      "costume_battle_type": "costume_battle_default",
+      "custom_courtyard_affair": "custom_courtyard_affair_default"
+    },
+    "battle": {
+      "battle_timeout": 420,
+      "on_takeover": "finish"
+    },
+    "ocr": {
+      "save_ocr_log": false
+    },
+    "team_flow": {
+      "enable": false,
+      "broker": "",
+      "port": 8883,
+      "transport": "TCP",
+      "ca": "",
+      "username": "",
+      "password": ""
+    }
+  },
+  "area_boss": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "boss": {
+      "boss_number": 3,
+      "boss_reward": false,
+      "reward_floor": "一星",
+      "use_collect": false,
+      "Attack_60": false
+    },
+    "general_battle": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "experience_youkai": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "experience_youkai": {
+      "buff_exp_50_click": false,
+      "buff_exp_100_click": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "gold_youkai": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "gold_youkai": {
+      "buff_gold_50_click": false,
+      "buff_gold_100_click": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "nian": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "nian_config": {
+      "buff_gold_50_click": false,
+      "buff_gold_100_click": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "realm_raid": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "raid_config": {
+      "number_attack": 30,
+      "number_base": 0,
+      "exit_four": true,
+      "order_attack": "5 > 4 > 3 > 2 > 1 > 0",
+      "three_refresh": false,
+      "when_attack_fail": "Refresh"
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "ryou_toppa": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "raid_config": {
+      "limit_time": "00:30:00",
+      "limit_count": 50,
+      "next_ryoutoppa_time": "07:00:00",
+      "skip_difficult": true,
+      "ryou_access": false,
+      "random_delay": false
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "kekkai_utilize": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 2,
+      "success_interval": "00 06:00:00",
+      "failure_interval": "00 06:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "utilize_config": {
+      "utilize_rule": "default",
+      "select_friend_list": "same_server",
+      "auto_fill": false,
+      "shikigami_class": "N",
+      "shikigami_order": 4,
+      "harvest_guild_max_times": 2,
+      "utilize_harvest": true,
+      "utilize_enable": true,
+      "guild_ap_enable": true,
+      "guild_assets_enable": true,
+      "box_ap_enable": true,
+      "box_exp_enable": true,
+      "box_exp_waste": true
+    }
+  },
+  "kekkai_activation": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 2,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "00 10:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "activation_config": {
+      "card_type": "太鼓",
+      "min_taiko_num": 8,
+      "min_fish_num": 16,
+      "exchange_before": true,
+      "exchange_max": true,
+      "auto_fill": false,
+      "shikigami_class": "N",
+      "card_not_found_count": 0
+    }
+  },
+  "demon_encounter": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 2,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "box_buy_config": {
+      "box_buy_sushi": false
+    },
+    "best_demon_boss_config": {
+      "best_demon_kiryou_utahime_select": false,
+      "best_demon_shinkirou_select": false,
+      "best_demon_tsuchigumo_select": false,
+      "best_demon_gashadokuro_select": false,
+      "best_demon_namazu_select": false,
+      "best_demon_oboroguruma_select": false,
+      "best_demon_nightly_aramitama_select": false
+    },
+    "demon_soul_config": {
+      "enable": false,
+      "demon_kiryou_utahime": "group,team",
+      "demon_shinkirou": "group,team",
+      "demon_tsuchigumo": "group,team",
+      "demon_gashadokuro": "group,team",
+      "demon_namazu": "group,team",
+      "demon_oboroguruma": "group,team",
+      "demon_nightly_aramitama": "group,team"
+    },
+    "best_demon_soul_config": {
+      "enable": false,
+      "best_demon_kiryou_utahime": "group,team",
+      "best_demon_shinkirou": "group,team",
+      "best_demon_tsuchigumo": "group,team",
+      "best_demon_gashadokuro": "group,team",
+      "best_demon_namazu": "group,team",
+      "best_demon_oboroguruma": "group,team",
+      "best_demon_nightly_aramitamau": "group,team"
+    },
+    "demon_battle_config": {
+      "demon_kiryou_utahime_enable": false,
+      "demon_kiryou_utahime": "-1,-1",
+      "demon_shinkirou_enable": false,
+      "demon_shinkirou": "-1,-1",
+      "demon_tsuchigumo_enable": false,
+      "demon_tsuchigumo": "-1,-1",
+      "demon_gashadokuro_enable": false,
+      "demon_gashadokuro": "-1,-1",
+      "demon_namazu_enable": false,
+      "demon_namazu": "-1,-1",
+      "demon_oboroguruma_enable": false,
+      "demon_oboroguruma": "-1,-1",
+      "demon_nightly_aramitama_enable": false,
+      "demon_nightly_aramitama": "-1,-1"
+    },
+    "best_demon_battle_config": {
+      "best_demon_shinkirou_enable": false,
+      "best_demon_shinkirou": "-1,-1",
+      "best_demon_tsuchigumo_enable": false,
+      "best_demon_tsuchigumo": "-1,-1",
+      "best_demon_gashadokuro_enable": false,
+      "best_demon_gashadokuro": "-1,-1",
+      "best_demon_namazu_enable": false,
+      "best_demon_namazu": "-1,-1",
+      "best_demon_oboroguruma_enable": false,
+      "best_demon_oboroguruma": "-1,-1",
+      "best_demon_nightly_aramitama_enable": false,
+      "best_demon_nightly_aramitamau": "-1,-1"
+    }
+  },
+  "daily_trifles": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "trifles_config": {
+      "courtyard_affairs": true,
+      "pickup_email": true,
+      "one_summon": false,
+      "summon_type": "普通召唤",
+      "draw_mystery_pattern": false,
+      "luck_msg": false,
+      "store_sign": false,
+      "buy_sushi_count": -1
+    },
+    "guild_donate": {
+      "enable": false,
+      "auto_get_rewards": true,
+      "notify_enable": false,
+      "guild_member_list": "",
+      "friend_list": "",
+      "name_check": true
+    },
+    "done_record": {
+      "courtyard_affairs_dt": "2023-01-01 00:00:00",
+      "pickup_email_dt": "2023-01-01 00:00:00",
+      "summon_dt": "2023-01-01 00:00:00",
+      "guild_donate_dt": "2023-01-01 00:00:00",
+      "luck_msg_dt": "2023-01-01 00:00:00",
+      "store_sign_dt": "2023-01-01 00:00:00",
+      "sushi_dt": "2023-01-01 00:00:00",
+      "guild_donate_finish": false
+    }
+  },
+  "talisman_pass": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "00 06:00:00",
+      "failure_interval": "00 06:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "talisman": {
+      "get_flower": false,
+      "level_reward": "金币/勾玉",
+      "harvest_soul": false
+    }
+  },
+  "pets": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "pets_config": {
+      "pets_feast": true,
+      "enable_orochi_ten_once": false,
+      "enable_switch_layer_soul": false
+    }
+  },
+  "souls_tidy": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "simple_tidy": {
+      "enable_greed": true,
+      "enable_maneki": true
+    }
+  },
+  "delegation": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "delegation_config": {
+      "miyoshino_painting": false,
+      "bird_feather": false,
+      "find_earring": false,
+      "cat_boss": false,
+      "miyoshino": false,
+      "strange_trace": false
+    }
+  },
+  "exploration": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "exploration_config": {
+      "buff_gold_50_click": false,
+      "buff_gold_100_click": false,
+      "buff_exp_50_click": false,
+      "buff_exp_100_click": false,
+      "user_status": "alone",
+      "limit_time": "00:30:00",
+      "minions_cnt": 30,
+      "exploration_level": "第二十八章",
+      "collect_paper_reward": true,
+      "auto_rotate": "不",
+      "choose_rarity": "N卡",
+      "up_type": "up_all"
+    },
+    "scrolls": {
+      "scrolls_enable": false,
+      "scrolls_cd": "00 00:30:00",
+      "scrolls_threshold": 25
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "wanted_quests": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "wanted_quests_config": {
+      "before_end": "00:00:00",
+      "invite_friend_name": "",
+      "cooperation_type": "Any",
+      "battle_priority": "挑战 > 秘闻 > 探索",
+      "cooperation_only": false,
+      "unwanted_boss_names": "酒吞童子,阎魔"
+    }
+  },
+  "tako": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "tako_config": {
+      "enable": false,
+      "buff_gold_50_click": false,
+      "buff_gold_100_click": false,
+      "buff_exp_50_click": false,
+      "buff_exp_100_click": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "auto_checkin_big_god": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "checkin_config": {
+      "usage": ""
+    }
+  },
+  "orochi": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "orochi_config": {
+      "user_status": "leader",
+      "layer": "悲鸣",
+      "limit_time": "00:30:00",
+      "limit_count": 30,
+      "soul_buff_enable": false,
+      "check_true_orochi_enable": false
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": "",
+      "auto_switch_soul": false,
+      "ten_switch": "-1,-1",
+      "eleven_switch": "-1,-1",
+      "twelve_switch": "-1,-1",
+      "thirteen_switch": "-1,-1"
+    }
+  },
+  "orochi_moans": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    }
+  },
+  "sougenbi": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "sougenbi_config": {
+      "sougenbi_class": "痴",
+      "limit_time": "00:30:00",
+      "limit_count": 30,
+      "buff_enable": false,
+      "buff_gold_50_click": false,
+      "buff_gold_100_click": false,
+      "buff_exp_50_click": false,
+      "buff_exp_100_click": false
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "fallen_sun": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "fallen_sun_config": {
+      "user_status": "leader",
+      "layer": "叁层",
+      "limit_time": "00:30:00",
+      "limit_count": 50
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "eternity_sea": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "eternity_sea_config": {
+      "user_status": "leader",
+      "layer": "肆层",
+      "limit_time": "00:30:00",
+      "limit_count": 30
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": true,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config_1": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    },
+    "switch_soul_config_2": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "six_realms": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "six_realms_gate": {
+      "limit_time": "00:30:00",
+      "limit_count": 1,
+      "six_realms_type": "MoonSea"
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    },
+    "pk_switch_soul_conf": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "other_world_twilight": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "other_world_twilight_config": {
+      "user_status": "leader",
+      "limit_time": "00:30:00",
+      "limit_count": 30
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "activity_shikigami": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "general_config": {
+      "task_sequence": [
+        "大富翁",
+        "伪神",
+        "爬塔"
+      ],
+      "throw_limit": 0,
+      "ap_limit": 0,
+      "pass_limit": "0",
+      "boss_limit": 0,
+      "ap100_limit": 0,
+      "fakegod_limit": 0,
+      "limit_time": "01:30:00",
+      "active_souls_clean": false,
+      "random_sleep": false,
+      "climb_drink_break": false,
+      "climb_drink_interval": "60,120"
+    },
+    "switch_soul_config": {
+      "enable_switch_exp_encounter": false,
+      "exp_encounter_group_team": "-1,-1",
+      "enable_switch_exp_encounter_by_name": false,
+      "exp_encounter_group_team_name": "",
+      "enable_switch_rich_man": false,
+      "rich_man_group_team": "-1,-1",
+      "enable_switch_rich_man_by_name": false,
+      "rich_man_group_team_name": "",
+      "enable_switch_ap": false,
+      "ap_group_team": "-1,-1",
+      "enable_switch_ap_by_name": false,
+      "ap_group_team_name": "",
+      "enable_switch_pass": false,
+      "pass_group_team": "-1,-1",
+      "enable_switch_pass_by_name": false,
+      "pass_group_team_name": "",
+      "enable_switch_boss": false,
+      "boss_group_team": "-1,-1",
+      "enable_switch_boss_by_name": false,
+      "boss_group_team_name": "",
+      "enable_switch_ap100": false,
+      "ap100_group_team": "-1,-1",
+      "enable_switch_ap100_by_name": false,
+      "ap100_group_team_name": "",
+      "enable_switch_fakegod": false,
+      "fakegod_group_team": "-1,-1",
+      "enable_switch_fakegod_by_name": false,
+      "fakegod_group_team_name": ""
+    },
+    "rich_man_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "ap_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "pass_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "boss_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "ap100_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "exp_encounter_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "fakegod_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    }
+  },
+  "martial_arts": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "general_climb": {
+      "limit_time": "00:30:00",
+      "ap_limit": 300,
+      "boss_limit": 20,
+      "run_sequence": "ap,boss"
+    },
+    "switch_soul_config": {
+      "enable_switch_ap": false,
+      "ap_group_team": "-1,-1",
+      "enable_switch_ap_by_name": false,
+      "ap_group_team_name": "",
+      "enable_switch_boss": false,
+      "boss_group_team": "-1,-1",
+      "enable_switch_boss_by_name": false,
+      "boss_group_team_name": ""
+    },
+    "boss_quick_loadout_config": {
+      "enable": false,
+      "mode": "mode_number",
+      "group_number": 1,
+      "preset_number": 1,
+      "group_name": "",
+      "preset_name": "",
+      "custom_preset_enable": false,
+      "custom_preset": "ALL:(1,1);"
+    },
+    "ap_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "boss_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    }
+  },
+  "meta_demon": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00",
+      "wait_interval": "00 01:40:00"
+    },
+    "meta_demon_config": {
+      "limit_time": "00:45:00",
+      "limit_count": 50,
+      "auto_tea": false,
+      "fire_sequence": "1 2 3 4",
+      "powerful_list": "",
+      "synthesis_list": "1"
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_once": false,
+      "one_star": "",
+      "enable_one_star_preset": false,
+      "two_stars": "",
+      "enable_two_stars_preset": false,
+      "three_stars": "",
+      "enable_three_stars_preset": false,
+      "four_stars": "",
+      "enable_four_stars_preset": false,
+      "five_stars": "",
+      "enable_five_stars_preset": false,
+      "six_stars": "",
+      "enable_six_stars_preset": false
+    }
+  },
+  "frog_boss": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "frog_boss_config": {
+      "before_end_frog": "00:15:00",
+      "strategy_frog": "frog_majority"
+    }
+  },
+  "float_parade": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "float_parade": {
+      "collect_placement_reward": true,
+      "collect_exp": true
+    }
+  },
+  "quiz": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "quiz_config": {
+      "quiz_cnt": 1,
+      "quiz_per_round": 150
+    }
+  },
+  "kitty_shop": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "kitty_shop_config": {
+      "kitty_attempts": 1,
+      "kitty_quit_when_finished": false
+    }
+  },
+  "dye_trials": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "gugu_art_studio": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "bondling_fairyland": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "bondling_config": {
+      "user_status": "alone",
+      "bondling_mode": "只刷探查(仅限单刷)",
+      "limit_time": "00:30:00",
+      "limit_count": 30,
+      "bondling_stone_class": "镇墓兽",
+      "bondling_stone_enable": false,
+      "bondling_search_enable": false,
+      "check_enable": true,
+      "limit_num": 2000,
+      "random_sleep": false
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "bondling_switch_soul": {
+      "enable": false,
+      "search_switch": "",
+      "tomb_guard_switch": "",
+      "snowball_switch": "",
+      "little_kuro_switch": "",
+      "azure_basan_switch": "",
+      "bondling_2_1_switch": "",
+      "bondling_2_2_switch": "",
+      "bondling_2_3_switch": "",
+      "bondling_2_4_switch": ""
+    },
+    "battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    }
+  },
+  "evo_zone": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "evo_zone_config": {
+      "user_status": "leader",
+      "kirin_type": "雷麒麟",
+      "layer": "拾层",
+      "limit_time": "00:30:00",
+      "limit_count": 30,
+      "soul_buff_enable": false
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "goryou_realm": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "goryou_config": {
+      "limit_time": "00:30:00",
+      "limit_count": 30,
+      "goryou_class": "随机"
+    },
+    "general_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "hyakkiyakou": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "hyakkiyakou_config": {
+      "hya_limit_time": "00:20:00",
+      "hya_limit_count": 10,
+      "hya_invite_friend": false,
+      "hya_onmyoji": "神乐",
+      "hya_auto_bean": false,
+      "hya_bean_threshold_low": 10,
+      "hya_priorities": "",
+      "hya_sp": 1.0,
+      "hya_ssr": 1.0,
+      "hya_sr": 0.7,
+      "hya_r": 0.3,
+      "hya_n": 0.0,
+      "hya_g": 0.0,
+      "hya_buff_prob_up": 2.2,
+      "hya_buff_speed_up": 2.0,
+      "hya_buff_add_beans": 2.0,
+      "hya_buff_slow_down": 2.0,
+      "hya_buff_freeze": 2.0
+    },
+    "hyakkiyakou_models": {
+      "conf_threshold": 0.6,
+      "iou_threshold": 0.7,
+      "model_precision": "FP32",
+      "inference_engine": "Onnxruntime"
+    },
+    "debug_config": {
+      "hya_show": false,
+      "hya_info": false,
+      "continuous_learning": false,
+      "hya_save_result": false,
+      "hya_interval": 300,
+      "hya_screenshot_method": "window_background",
+      "hya_control_method": "window_message"
+    }
+  },
+  "hero_test": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "herotest": {
+      "layer": "鬼兵演武",
+      "skill_mode": "PVE",
+      "limit_time": "00:30:00",
+      "limit_count": 100,
+      "exp_50_buff_enable_help": false,
+      "exp_100_buff_enable_help": false
+    },
+    "general_battle": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "find_jade": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "find_jade_config": {
+      "invite_info_count": 1,
+      "sup_account_count": 1
+    },
+    "invite_info_list_1": {
+      "name": "",
+      "default_invite_type": "JadeAndFood",
+      "invite_history_1": "2023-01-01 00:00:00",
+      "invite_history_2": "2023-01-01 00:00:00",
+      "invite_history_4": "2023-01-01 00:00:00",
+      "invite_history_8": "2023-01-01 00:00:00"
+    },
+    "sup_account_list_1": {
+      "character": "",
+      "svr": "",
+      "account": "",
+      "account_alias": "",
+      "apple_or_android": true,
+      "last_complete_time": "2023-01-01 00:00:00"
+    }
+  },
+  "memory_scrolls": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "memory_scrolls_config": {
+      "auto_contribute_memoryscrolls": true,
+      "double_scrolls": "默认绘卷一",
+      "scroll_number": "卷一",
+      "auto_close_exploration": false,
+      "notification_95": false
+    },
+    "memory_scrolls_finish": {
+      "auto_finish_exploration": false,
+      "next_exploration_time": "07:00:00"
+    }
+  },
+  "true_orochi": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 10,
+      "success_interval": "03 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "true_orochi_config": {
+      "find_true_orochi": true,
+      "current_success": 0
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": "",
+      "enable_switch_layer_soul": false
+    }
+  },
+  "weekly_purchase": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "special_room": {
+      "enable": false,
+      "totem_pass": false,
+      "medium_bondling_discs": 0,
+      "low_bondling_discs": 0
+    },
+    "honor_room": {
+      "enable": false,
+      "mystery_amulet": false,
+      "black_daruma_scrap": false
+    },
+    "friendship_points": {
+      "enable": false,
+      "white_daruma": false,
+      "red_daruma": 0,
+      "broken_amulet": 0
+    },
+    "medal_room": {
+      "enable": false,
+      "black_daruma": false,
+      "mystery_amulet": false,
+      "ap_100": false,
+      "random_soul": false,
+      "white_daruma": false,
+      "challenge_pass": 0,
+      "red_daruma": 0,
+      "broken_amulet": 0
+    },
+    "charisma": {
+      "enable": false,
+      "black_daruma_scrap": false,
+      "mystery_amulet": false
+    },
+    "thousand_things": {
+      "enable": false,
+      "earn_money": false,
+      "mystery_amulet": false,
+      "black_daruma_fragment": false,
+      "ap": false
+    },
+    "consignment": {
+      "enable": false,
+      "buy_sale_ticket": false
+    },
+    "scales": {
+      "enable": false,
+      "orochi_scales": 40,
+      "demon_souls": 50,
+      "demon_class": "土蜘蛛",
+      "demon_position": 1,
+      "picture_book_scrap": 30,
+      "enable_book_auto": false,
+      "picture_book_rule": "auto"
+    },
+    "bondlings": {
+      "enable": false,
+      "random_soul": 0,
+      "bondling_stone": 0,
+      "high_bondling_discs": 0,
+      "medium_bondling_discs": 0
+    },
+    "shrine": {
+      "enable": false,
+      "black_daruma": false,
+      "white_daruma_five": false,
+      "white_daruma_four": false
+    },
+    "guild_store": {
+      "enable": false,
+      "honor_gift": false,
+      "mystery_amulet": false,
+      "black_daruma_scrap": false,
+      "skin_ticket": 0
+    }
+  },
+  "secret": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "07 00:00:00",
+      "failure_interval": "07 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "secret_config": {
+      "secret_gold_50": false,
+      "secret_gold_100": false,
+      "layer_10": false,
+      "layer_9": false
+    },
+    "general_battle": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "weekly_trifles": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "07 00:00:00",
+      "failure_interval": "07 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "trifles": {
+      "share_collect": true,
+      "share_area_boss": true,
+      "share_secret": true,
+      "broken_amulet": 100
+    }
+  },
+  "mystery_shop": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "shop_config": {
+      "time_of_mystery": "00:00:00",
+      "mystery_amulet": false,
+      "black_daruma_scrap": false,
+      "shop_kaiko_3": false,
+      "shop_kaiko_4": false
+    },
+    "invite_config": {
+      "friend_list": "",
+      "find_mode": "auto_find",
+      "wait_time": "00:02:00",
+      "default_invite": true
+    }
+  },
+  "duel": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "duel_config": {
+      "switch_enabled": true,
+      "switch_onmyoji": "源赖光",
+      "switch_all_soul": false,
+      "limit_time": "00:30:00",
+      "target_score": 2000,
+      "honor_full_exit": false,
+      "green_enable": false,
+      "green_mark": "green_left1",
+      "random_sleep": false,
+      "matchmaking_timeout_seconds": 60
+    },
+    "duel_celeb_config": {
+      "celeb_battle": false,
+      "practice_test": false,
+      "ban_check": "",
+      "full_lineup_check": false,
+      "full_lineup_names": "",
+      "celeb_star": 8
+    },
+    "switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "chess": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "chess_config": {
+      "lineup_bond": "荒川",
+      "rank_protection": false,
+      "run_count": 1,
+      "limit_time": "00:30:00",
+      "matchmaking_timeout_seconds": 60,
+      "coin_full_exit": false
+    }
+  },
+  "collective_missions": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "missions_config": {
+      "missions_select": "觉醒一"
+    }
+  },
+  "hunt": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "hunt_time": {
+      "kirin_time": "19:00:00",
+      "netherworld_time": "19:00:00"
+    },
+    "hunt_config": {
+      "kirin_group_team": "-1,-1",
+      "netherworld_group_team": "-1,-1"
+    },
+    "kirin_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "netherworld_battle_config": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": true,
+      "max_continuous": 0,
+      "quick_exit": false
+    }
+  },
+  "dokan": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "dokan_config": {
+      "dokan_run_time": "20:00:00",
+      "dokan_attack_priority": 0,
+      "dokan_auto_cheering_while_cd": false,
+      "random_delay": false,
+      "monday_to_thursday": true,
+      "try_start_dokan": false,
+      "find_dokan_score": 4.6,
+      "min_people_num": -1,
+      "min_bounty": 0,
+      "find_dokan_refresh_count": 7
+    },
+    "dokan_member_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": true,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "dokan_owner_battle_conf": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": true,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "dokan_member_switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    },
+    "dokan_owner_switch_soul": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    },
+    "attack_count_config": {
+      "remain_attack_count": 2,
+      "attack_date": "2023-01-01",
+      "daily_attack_count": 2,
+      "attack_dokan_master": "ATTACK_TWO_TWO"
+    }
+  },
+  "abyss_shadows": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "abyss_shadows_time": {
+      "abyss_shadows_4": "20:00:00",
+      "abyss_shadows_5": "20:00:00",
+      "abyss_shadows_6": "20:00:00"
+    },
+    "process_manage": {
+      "attack_order": "A-1;B-1;B;A-2;A-3;A-4;A-5;A-6",
+      "mark_main": "BOSS_ONLY",
+      "strategy_boss": "FALSE",
+      "strategy_general": "30",
+      "strategy_elite": "4380000",
+      "enable_switch_soul_in_as": false,
+      "enable_switch_preset_in_as": false,
+      "preset_boss": "6,1",
+      "preset_general": "6,2",
+      "preset_elite": "6,3",
+      "try_complete_enemy_count": false,
+      "try_start_abyss_shadows": false,
+      "difficulty": "EASY"
+    },
+    "saved_params": {
+      "save_date": "",
+      "done": "",
+      "unavailable": ""
+    }
+  },
+  "guild_banquet": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "guild_banquet_config": {
+      "auto_switch_shikigami": false,
+      "day_1": "星期三",
+      "run_time_1": "20:00:00",
+      "day_2": "星期六",
+      "run_time_2": "20:00:00"
+    }
+  },
+  "demon_retreat": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "demon_retreat_time": {
+      "custom_run_time": "10:00:00"
+    },
+    "general_battle": {
+      "lock_team_enable": false,
+      "preset_enable": false,
+      "preset_group": 1,
+      "preset_team": 1,
+      "green_enable": false,
+      "green_mark_type": "choose",
+      "green_mark": "green_left1",
+      "green_mark_name": "",
+      "random_click_swipt_enable": false,
+      "battle_timeout": -1,
+      "continuous_battle": false,
+      "max_continuous": 0,
+      "quick_exit": false
+    },
+    "switch_soul_config": {
+      "enable": false,
+      "switch_group_team": "-1,-1",
+      "enable_switch_by_name": false,
+      "group_name": "",
+      "team_name": ""
+    }
+  },
+  "guild_activity_monitor": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "01 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "guild_activity_monitor_combat_time": {
+      "detection_interval": 30,
+      "monitor_duration": 15,
+      "recheck_interval": 5,
+      "run_days": "1,2,3,4,5,6,7"
+    },
+    "guild_activity": {
+      "Dokan": true,
+      "AbyssShadows": true,
+      "GuildBanquet": true,
+      "DemonRetreat": true
+    }
+  },
+  "draft_duel": {
+    "scheduler": {
+      "enable": false,
+      "next_run": "2023-01-01 00:00:00",
+      "priority": 5,
+      "success_interval": "07 00:00:00",
+      "failure_interval": "01 00:00:00",
+      "server_update": "09:00:00",
+      "delay_date": 1,
+      "float_time": "00:00:00"
+    },
+    "draft_duel_config": {
+      "match_mode": "单人",
+      "start_timeout_seconds": 120,
+      "teammate_timeout_seconds": 180,
+      "pick_timeout_seconds": 30,
+      "completion_count": 1,
+      "battle_timeout_seconds": 3600
+    }
+  }
+}

@@ -1,0 +1,3913 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OAS",
+    "description": "OAS web service",
+    "version": "0.0.0"
+  },
+  "paths": {
+    "/home/test": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Home Test",
+        "operationId": "home_test_home_test_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/home_menu": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Home Menu",
+        "operationId": "home_menu_home_home_menu_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/image_server_info": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Image Server Info",
+        "operationId": "image_server_info_home_image_server_info_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/ocr_server_info": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Ocr Server Info",
+        "operationId": "ocr_server_info_home_ocr_server_info_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/notify_test": {
+      "post": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Notify Test",
+        "operationId": "notify_test_home_notify_test_post",
+        "parameters": [
+          {
+            "name": "setting",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Setting"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Title"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Content"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/kill_server": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Kill Server",
+        "operationId": "kill_server_home_kill_server_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/update_info": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Update Info",
+        "operationId": "update_info_home_update_info_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/execute_update": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Execute Update",
+        "operationId": "execute_update_home_execute_update_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/chinese_translate": {
+      "put": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Chinese Translate",
+        "operationId": "chinese_translate_home_chinese_translate_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "title": "Data"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/additional_translate": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Additional Translate",
+        "operationId": "additional_translate_home_additional_translate_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Response Additional Translate Home Additional Translate Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/home/export_diagnostic": {
+      "get": {
+        "tags": [
+          "home"
+        ],
+        "summary": "Export Diagnostic",
+        "operationId": "export_diagnostic_home_export_diagnostic_get",
+        "parameters": [
+          {
+            "name": "config_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Config Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test": {
+      "get": {
+        "summary": "Script Test",
+        "operationId": "script_test_test_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/script_menu": {
+      "get": {
+        "summary": "Script Menu",
+        "operationId": "script_menu_script_menu_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config_list": {
+      "get": {
+        "summary": "Config List",
+        "operationId": "config_list_config_list_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config_copy": {
+      "post": {
+        "summary": "Config Copy",
+        "operationId": "config_copy_config_copy_post",
+        "parameters": [
+          {
+            "name": "file",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File"
+            }
+          },
+          {
+            "name": "template",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "template",
+              "title": "Template"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config_new_name": {
+      "get": {
+        "summary": "Config New Name",
+        "operationId": "config_new_name_config_new_name_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config_all": {
+      "get": {
+        "summary": "Config All",
+        "operationId": "config_all_config_all_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/import": {
+      "post": {
+        "summary": "Config Import",
+        "description": "导入脚本配置文件，上传文件名不会作为落盘名称。",
+        "operationId": "config_import_config_import_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_config_import_config_import_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/export": {
+      "get": {
+        "summary": "Config Export",
+        "description": "导出脱敏后的脚本配置文件。",
+        "operationId": "config_export_config_export_get",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/task/import": {
+      "post": {
+        "summary": "Config Task Import",
+        "description": "导入单个任务配置 JSON，内容必须是 {\"task_key\": {...}}。",
+        "operationId": "config_task_import_config_task_import_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_config_task_import_config_task_import_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/task/export": {
+      "get": {
+        "summary": "Config Task Export",
+        "description": "导出脱敏后的单个任务配置 JSON 文件。",
+        "operationId": "config_task_export_config_task_export_get",
+        "parameters": [
+          {
+            "name": "config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Config Name"
+            }
+          },
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/task/copy-json": {
+      "get": {
+        "summary": "Config Task Copy Json",
+        "description": "复制单个任务配置 JSON，返回未脱敏普通 JSON。",
+        "operationId": "config_task_copy_json_config_task_copy_json_get",
+        "parameters": [
+          {
+            "name": "config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Config Name"
+            }
+          },
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config": {
+      "put": {
+        "summary": "Config Rename",
+        "description": "update config name\n:param old_name: old config name\n:param new_name: new config name\n:return: True or False",
+        "operationId": "config_rename_config_put",
+        "parameters": [
+          {
+            "name": "old_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Old Name"
+            }
+          },
+          {
+            "name": "new_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "New Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Config Delete",
+        "description": "delete config file\n:param name: config name\n:return: True or False",
+        "operationId": "config_delete_config_delete",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/task/copy": {
+      "put": {
+        "summary": "Task Copy",
+        "operationId": "task_copy_config_task_copy_put",
+        "parameters": [
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          },
+          {
+            "name": "dest_config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Dest Config Name"
+            }
+          },
+          {
+            "name": "source_config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Source Config Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/config/task/group/copy": {
+      "put": {
+        "summary": "Task Group Copy",
+        "operationId": "task_group_copy_config_task_group_copy_put",
+        "parameters": [
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          },
+          {
+            "name": "group_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Group Name"
+            }
+          },
+          {
+            "name": "dest_config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Dest Config Name"
+            }
+          },
+          {
+            "name": "source_config_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Source Config Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/start": {
+      "get": {
+        "summary": "Script Start",
+        "operationId": "script_start__script_name__start_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/stop": {
+      "get": {
+        "summary": "Script Stop",
+        "operationId": "script_stop__script_name__stop_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/{task}/args": {
+      "get": {
+        "summary": "Script Task",
+        "operationId": "script_task__script_name___task__args_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          },
+          {
+            "name": "task",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/{task}/{group}/{argument}/value": {
+      "put": {
+        "summary": "Script Task",
+        "operationId": "script_task__script_name___task___group___argument__value_put",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          },
+          {
+            "name": "task",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task"
+            }
+          },
+          {
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Group"
+            }
+          },
+          {
+            "name": "argument",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Argument"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Types"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "title": "Value"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/{task}/sync_next_run": {
+      "put": {
+        "summary": "Sync Next Run",
+        "operationId": "sync_next_run__script_name___task__sync_next_run_put",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          },
+          {
+            "name": "task",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task"
+            }
+          },
+          {
+            "name": "target_dt",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Target Dt"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/state": {
+      "get": {
+        "summary": "Script Task State",
+        "operationId": "script_task_state__script_name__state_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{script_name}/log": {
+      "get": {
+        "summary": "Script Task Log",
+        "operationId": "script_task_log__script_name__log_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/{script_name}/dates": {
+      "get": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "Stats Available Dates",
+        "operationId": "stats_available_dates_stats__script_name__dates_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsAvailableDatesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/{script_name}": {
+      "get": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "Stats Snapshot",
+        "operationId": "stats_snapshot_stats__script_name__get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "YYYY-MM-DD",
+              "title": "Date"
+            },
+            "description": "YYYY-MM-DD"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/{script_name}/stream": {
+      "get": {
+        "tags": [
+          "stats"
+        ],
+        "summary": "Stats Stream",
+        "operationId": "stats_stream_stats__script_name__stream_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Script Name"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "YYYY-MM-DD",
+              "title": "Date"
+            },
+            "description": "YYYY-MM-DD"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs/errors": {
+      "get": {
+        "tags": [
+          "logs"
+        ],
+        "summary": "Get Error Logs",
+        "description": "查询错误日志列表。\n\n不传 `date` 时, 返回对应脚本名的全部错误日志列表。",
+        "operationId": "get_error_logs_logs_errors_get",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "目标日期, 格式为 YYYY-MM-DD, 不传则不过滤日期",
+              "title": "Date"
+            },
+            "description": "目标日期, 格式为 YYYY-MM-DD, 不传则不过滤日期"
+          },
+          {
+            "name": "script_name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "可选脚本名过滤条件",
+              "title": "Script Name"
+            },
+            "description": "可选脚本名过滤条件"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "description": "单页最多返回的错误目录数量",
+              "default": 100,
+              "title": "Limit"
+            },
+            "description": "单页最多返回的错误目录数量"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "上一页返回的分页 cursor",
+              "title": "Cursor"
+            },
+            "description": "上一页返回的分页 cursor"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorLogListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs/errors/{error_id}": {
+      "get": {
+        "tags": [
+          "logs"
+        ],
+        "summary": "Get Error Log Detail",
+        "description": "查询单个错误目录的详情。",
+        "operationId": "get_error_log_detail_logs_errors__error_id__get",
+        "parameters": [
+          {
+            "name": "error_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "错误目录名, 支持 <script_name>_<timestamp_ms> 和旧格式 <timestamp_ms>",
+              "title": "Error Id"
+            },
+            "description": "错误目录名, 支持 <script_name>_<timestamp_ms> 和旧格式 <timestamp_ms>"
+          },
+          {
+            "name": "log_limit_bytes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1048576,
+              "minimum": 1,
+              "description": "log.txt 最多返回的字节数",
+              "default": 262144,
+              "title": "Log Limit Bytes"
+            },
+            "description": "log.txt 最多返回的字节数"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetailResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs/errors/{error_id}/images/{image_name}": {
+      "get": {
+        "tags": [
+          "logs"
+        ],
+        "summary": "Get Error Log Image",
+        "description": "读取单张错误截图。",
+        "operationId": "get_error_log_image_logs_errors__error_id__images__image_name__get",
+        "parameters": [
+          {
+            "name": "error_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "错误目录名",
+              "title": "Error Id"
+            },
+            "description": "错误目录名"
+          },
+          {
+            "name": "image_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "错误目录下的 PNG 截图文件名",
+              "title": "Image Name"
+            },
+            "description": "错误目录下的 PNG 截图文件名"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs/{script_name}": {
+      "get": {
+        "tags": [
+          "logs"
+        ],
+        "summary": "Get Log Window",
+        "description": "读取脚本日志的最新窗口或更旧窗口。",
+        "operationId": "get_log_window_logs__script_name__get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "脚本配置名或日志脚本名",
+              "title": "Script Name"
+            },
+            "description": "脚本配置名或日志脚本名"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "上一页返回的 older_cursor; 不传表示打开最新窗口",
+              "title": "Cursor"
+            },
+            "description": "上一页返回的 older_cursor; 不传表示打开最新窗口"
+          },
+          {
+            "name": "limit_lines",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 2000,
+              "minimum": 1,
+              "description": "本次最多返回的日志行数",
+              "default": 500,
+              "title": "Limit Lines"
+            },
+            "description": "本次最多返回的日志行数"
+          },
+          {
+            "name": "limit_bytes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1048576,
+              "minimum": 4096,
+              "description": "本次最多返回的日志字节数",
+              "default": 262144,
+              "title": "Limit Bytes"
+            },
+            "description": "本次最多返回的日志字节数"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LogWindowResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/logs/{script_name}/stream": {
+      "get": {
+        "tags": [
+          "logs"
+        ],
+        "summary": "Get Log Stream",
+        "description": "订阅脚本最新日志的 SSE 流。",
+        "operationId": "get_log_stream_logs__script_name__stream_get",
+        "parameters": [
+          {
+            "name": "script_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "脚本配置名或日志脚本名",
+              "title": "Script Name"
+            },
+            "description": "脚本配置名或日志脚本名"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "上一窗口返回的 live_cursor; 不传表示从当前最新位置开始订阅",
+              "title": "Cursor"
+            },
+            "description": "上一窗口返回的 live_cursor; 不传表示从当前最新位置开始订阅"
+          },
+          {
+            "name": "limit_lines",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 1000,
+              "minimum": 1,
+              "description": "单个 append 事件最多返回的行数",
+              "default": 200,
+              "title": "Limit Lines"
+            },
+            "description": "单个 append 事件最多返回的行数"
+          },
+          {
+            "name": "limit_bytes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 524288,
+              "minimum": 4096,
+              "description": "单个 append 事件最多返回的字节数",
+              "default": 131072,
+              "title": "Limit Bytes"
+            },
+            "description": "单个 append 事件最多返回的字节数"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Tool Annotator Page",
+        "operationId": "tool_annotator_page_tool_annotator_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/session": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Create Session",
+        "operationId": "annotator_create_session_tool_annotator_api_session_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/session/{session_id}": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Get Session",
+        "operationId": "annotator_get_session_tool_annotator_api_session__session_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Close Session",
+        "operationId": "annotator_close_session_tool_annotator_api_session__session_id__delete",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "client_close",
+              "title": "Reason"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/session/{session_id}/close": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Close Session Beacon",
+        "operationId": "annotator_close_session_beacon_tool_annotator_api_session__session_id__close_post",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "reason",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "pagehide",
+              "title": "Reason"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images/upload": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Upload Images",
+        "operationId": "annotator_upload_images_tool_annotator_api_images_upload_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UploadImagesBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator List Images",
+        "operationId": "annotator_list_images_tool_annotator_api_images_get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images/{session_id}/{image_id}": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Image File",
+        "operationId": "annotator_image_file_tool_annotator_api_images__session_id___image_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Image Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Delete Image",
+        "operationId": "annotator_delete_image_tool_annotator_api_images__session_id___image_id__delete",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Image Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images/delete-batch": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Delete Batch Images",
+        "operationId": "annotator_delete_batch_images_tool_annotator_api_images_delete_batch_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchDeleteImagesBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images/clear": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Clear Images",
+        "operationId": "annotator_clear_images_tool_annotator_api_images_clear_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/configs": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Configs",
+        "operationId": "annotator_configs_tool_annotator_api_configs_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/tasks": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Tasks",
+        "operationId": "annotator_tasks_tool_annotator_api_tasks_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/tasks/{task_name}/json": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Task Json Files",
+        "operationId": "annotator_task_json_files_tool_annotator_api_tasks__task_name__json_get",
+        "parameters": [
+          {
+            "name": "task_name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/schema": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Schema",
+        "operationId": "annotator_rule_schema_tool_annotator_api_rules_schema_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/load": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Load Rules",
+        "operationId": "annotator_load_rules_tool_annotator_api_rules_load_get",
+        "parameters": [
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          },
+          {
+            "name": "json_relpath",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Json Relpath"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/source": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Source",
+        "operationId": "annotator_rule_source_tool_annotator_api_rules_source_get",
+        "parameters": [
+          {
+            "name": "dir_path",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Dir Path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/source/create": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Source Create",
+        "operationId": "annotator_rule_source_create_tool_annotator_api_rules_source_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleFileCreateBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/source/delete": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Source Delete",
+        "operationId": "annotator_rule_source_delete_tool_annotator_api_rules_source_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleFileDeleteBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/image-preview": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Image Preview",
+        "operationId": "annotator_rule_image_preview_tool_annotator_api_rules_image_preview_get",
+        "parameters": [
+          {
+            "name": "task_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Task Name"
+            }
+          },
+          {
+            "name": "json_relpath",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Json Relpath"
+            }
+          },
+          {
+            "name": "image_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Image Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/image/delete": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Rule Image Delete",
+        "operationId": "annotator_rule_image_delete_tool_annotator_api_rules_image_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleImageDeleteBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/emulator/start": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Start Emulator",
+        "operationId": "annotator_start_emulator_tool_annotator_api_emulator_start_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmulatorStartBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/emulator/stop": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Stop Emulator",
+        "operationId": "annotator_stop_emulator_tool_annotator_api_emulator_stop_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/emulator/status": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Emulator Status",
+        "operationId": "annotator_emulator_status_tool_annotator_api_emulator_status_get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/emulator/capture": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Capture Frame",
+        "operationId": "annotator_capture_frame_tool_annotator_api_emulator_capture_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/test": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Test Rule",
+        "operationId": "annotator_test_rule_tool_annotator_api_rules_test_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleTestBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/rules/save": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Save Rules",
+        "operationId": "annotator_save_rules_tool_annotator_api_rules_save_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleSaveBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/annotator/api/images/crop-save": {
+      "post": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Annotator Crop Save",
+        "operationId": "annotator_crop_save_tool_annotator_api_images_crop_save_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CropSaveBody"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/repair/status": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Repair Status",
+        "operationId": "repair_status_tool_repair_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/repair/drafts": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Repair Drafts",
+        "operationId": "repair_drafts_tool_repair_drafts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/repair/dashboard": {
+      "get": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Repair Dashboard",
+        "operationId": "repair_dashboard_tool_repair_dashboard_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/repair/enabled": {
+      "put": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Repair Set Enabled",
+        "operationId": "repair_set_enabled_tool_repair_enabled_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepairEnabled"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tool/repair/evidence/enabled": {
+      "put": {
+        "tags": [
+          "tool"
+        ],
+        "summary": "Repair Set Evidence Enabled",
+        "operationId": "repair_set_evidence_enabled_tool_repair_evidence_enabled_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepairEnabled"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchDeleteImagesBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "image_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Image Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "image_ids"
+        ],
+        "title": "BatchDeleteImagesBody"
+      },
+      "BattleStatsResponse": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "avg_duration_seconds": {
+            "type": "number",
+            "title": "Avg Duration Seconds"
+          }
+        },
+        "type": "object",
+        "required": [
+          "count",
+          "avg_duration_seconds"
+        ],
+        "title": "BattleStatsResponse"
+      },
+      "Body_config_import_config_import_post": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "file"
+        ],
+        "title": "Body_config_import_config_import_post"
+      },
+      "Body_config_task_import_config_task_import_post": {
+        "properties": {
+          "config_name": {
+            "type": "string",
+            "title": "Config Name"
+          },
+          "task_name": {
+            "type": "string",
+            "title": "Task Name"
+          },
+          "json_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Json Text"
+          },
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "config_name",
+          "task_name"
+        ],
+        "title": "Body_config_task_import_config_task_import_post"
+      },
+      "CropSaveBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "image_id": {
+            "type": "string",
+            "title": "Image Id"
+          },
+          "task_name": {
+            "type": "string",
+            "title": "Task Name"
+          },
+          "json_relpath": {
+            "type": "string",
+            "title": "Json Relpath"
+          },
+          "image_name": {
+            "type": "string",
+            "title": "Image Name"
+          },
+          "roi": {
+            "type": "string",
+            "title": "Roi"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "image_id",
+          "task_name",
+          "json_relpath",
+          "image_name",
+          "roi"
+        ],
+        "title": "CropSaveBody"
+      },
+      "EmulatorStartBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "config_name": {
+            "type": "string",
+            "title": "Config Name"
+          },
+          "frame_rate": {
+            "type": "integer",
+            "title": "Frame Rate",
+            "default": 2
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "config_name"
+        ],
+        "title": "EmulatorStartBody"
+      },
+      "ErrorDetailResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "错误目录名, 也是 error_id"
+          },
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "错误目录名"
+          },
+          "script_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Script Name",
+            "description": "错误所属脚本名; 旧目录没有脚本名时为 null"
+          },
+          "timestamp_ms": {
+            "type": "integer",
+            "title": "Timestamp Ms",
+            "description": "错误目录中的毫秒时间戳"
+          },
+          "time": {
+            "type": "string",
+            "title": "Time",
+            "description": "错误时间, 带本地时区的 ISO 字符串"
+          },
+          "legacy": {
+            "type": "boolean",
+            "title": "Legacy",
+            "description": "是否为旧格式纯时间戳目录"
+          },
+          "log": {
+            "$ref": "#/components/schemas/ErrorLogText",
+            "description": "错误目录下 log.txt 的内容"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/ErrorImageInfo"
+            },
+            "type": "array",
+            "title": "Images",
+            "description": "错误目录下的 PNG 截图元信息"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "directory",
+          "timestamp_ms",
+          "time",
+          "legacy",
+          "log"
+        ],
+        "title": "ErrorDetailResponse",
+        "description": "错误日志详情响应。"
+      },
+      "ErrorImageInfo": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "PNG 截图文件名"
+          },
+          "size": {
+            "type": "integer",
+            "title": "Size",
+            "description": "截图文件字节数"
+          },
+          "modified_time": {
+            "type": "string",
+            "title": "Modified Time",
+            "description": "截图文件修改时间"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url",
+            "description": "读取该截图的接口 URL"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "size",
+          "modified_time",
+          "url"
+        ],
+        "title": "ErrorImageInfo",
+        "description": "错误目录中单张截图的元信息。"
+      },
+      "ErrorLogItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "错误目录名, 也是详情接口的 error_id"
+          },
+          "directory": {
+            "type": "string",
+            "title": "Directory",
+            "description": "错误目录名"
+          },
+          "script_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Script Name",
+            "description": "错误所属脚本名; 旧目录没有脚本名时为 null"
+          },
+          "timestamp_ms": {
+            "type": "integer",
+            "title": "Timestamp Ms",
+            "description": "错误目录中的毫秒时间戳"
+          },
+          "time": {
+            "type": "string",
+            "title": "Time",
+            "description": "错误时间, 带本地时区的 ISO 字符串"
+          },
+          "legacy": {
+            "type": "boolean",
+            "title": "Legacy",
+            "description": "是否为旧格式纯时间戳目录"
+          },
+          "log_size": {
+            "type": "integer",
+            "title": "Log Size",
+            "description": "错误目录下 log.txt 的字节数"
+          },
+          "image_count": {
+            "type": "integer",
+            "title": "Image Count",
+            "description": "错误目录下 PNG 截图数量"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "directory",
+          "timestamp_ms",
+          "time",
+          "legacy",
+          "log_size",
+          "image_count"
+        ],
+        "title": "ErrorLogItem",
+        "description": "错误日志列表中的单个目录项。"
+      },
+      "ErrorLogListResponse": {
+        "properties": {
+          "date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date",
+            "description": "本次查询的日期; 不传 date 时为 null"
+          },
+          "script_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Script Name",
+            "description": "本次查询使用的脚本名过滤条件"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ErrorLogItem"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "错误日志目录列表"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor",
+            "description": "下一页分页 cursor, 没有更多数据时为 null"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "description": "是否还有下一页",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "ErrorLogListResponse",
+        "description": "错误日志列表响应。"
+      },
+      "ErrorLogText": {
+        "properties": {
+          "file_name": {
+            "type": "string",
+            "title": "File Name",
+            "description": "日志文件名, 固定为 log.txt"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "description": "日志文本内容"
+          },
+          "size": {
+            "type": "integer",
+            "title": "Size",
+            "description": "log.txt 原始字节数"
+          },
+          "limit_bytes": {
+            "type": "integer",
+            "title": "Limit Bytes",
+            "description": "本次读取使用的字节上限"
+          },
+          "truncated": {
+            "type": "boolean",
+            "title": "Truncated",
+            "description": "日志内容是否因超过 limit_bytes 被截断"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file_name",
+          "content",
+          "size",
+          "limit_bytes",
+          "truncated"
+        ],
+        "title": "ErrorLogText",
+        "description": "错误目录中 `log.txt` 的返回内容。"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "LogLine": {
+        "properties": {
+          "file_name": {
+            "type": "string",
+            "title": "File Name",
+            "description": "该行所属日志文件名"
+          },
+          "line_no": {
+            "type": "integer",
+            "title": "Line No",
+            "description": "该行在文件中的行号"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset",
+            "description": "该行在文件中的起始字节偏移量"
+          },
+          "byte_length": {
+            "type": "integer",
+            "title": "Byte Length",
+            "description": "该行原始字节长度, 包含行尾换行符"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "description": "该行可展示文本"
+          },
+          "line_truncated": {
+            "type": "boolean",
+            "title": "Line Truncated",
+            "description": "该行展示文本是否因超过 max_line_bytes 被截断"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file_name",
+          "line_no",
+          "offset",
+          "byte_length",
+          "text",
+          "line_truncated"
+        ],
+        "title": "LogLine",
+        "description": "前端直接渲染的单行日志结构。"
+      },
+      "LogPosition": {
+        "properties": {
+          "file_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Name",
+            "description": "位置所在的日志文件名"
+          },
+          "offset": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offset",
+            "description": "位置所在的文件字节偏移量"
+          },
+          "line_no": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Line No",
+            "description": "位置对应的日志行号"
+          }
+        },
+        "type": "object",
+        "title": "LogPosition",
+        "description": "日志窗口中单个位置的描述。"
+      },
+      "LogWindowLimits": {
+        "properties": {
+          "limit_lines": {
+            "type": "integer",
+            "title": "Limit Lines",
+            "description": "本次窗口的行数上限"
+          },
+          "limit_bytes": {
+            "type": "integer",
+            "title": "Limit Bytes",
+            "description": "本次窗口的字节上限"
+          },
+          "max_line_bytes": {
+            "type": "integer",
+            "title": "Max Line Bytes",
+            "description": "单行展示文本的安全截断上限"
+          }
+        },
+        "type": "object",
+        "required": [
+          "limit_lines",
+          "limit_bytes",
+          "max_line_bytes"
+        ],
+        "title": "LogWindowLimits",
+        "description": "日志窗口的限制参数回显。"
+      },
+      "LogWindowResponse": {
+        "properties": {
+          "script_name": {
+            "type": "string",
+            "title": "Script Name",
+            "description": "标准化后的脚本名"
+          },
+          "window": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/LogPosition"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Window",
+            "description": "当前窗口的 from/to 首尾位置"
+          },
+          "older_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Older Cursor",
+            "description": "继续向更旧日志回翻使用的 cursor"
+          },
+          "live_cursor": {
+            "type": "string",
+            "title": "Live Cursor",
+            "description": "订阅实时追加日志使用的 cursor"
+          },
+          "has_older": {
+            "type": "boolean",
+            "title": "Has Older",
+            "description": "是否仍有更旧日志可继续回翻"
+          },
+          "reached_start": {
+            "type": "boolean",
+            "title": "Reached Start",
+            "description": "是否已经到达该脚本日志起点"
+          },
+          "limits": {
+            "$ref": "#/components/schemas/LogWindowLimits",
+            "description": "本次生效的窗口限制"
+          },
+          "lines": {
+            "items": {
+              "$ref": "#/components/schemas/LogLine"
+            },
+            "type": "array",
+            "title": "Lines",
+            "description": "按旧到新顺序返回的完整日志行"
+          }
+        },
+        "type": "object",
+        "required": [
+          "script_name",
+          "window",
+          "live_cursor",
+          "has_older",
+          "reached_start",
+          "limits"
+        ],
+        "title": "LogWindowResponse",
+        "description": "脚本日志主窗口响应。"
+      },
+      "RepairEnabled": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled"
+          }
+        },
+        "type": "object",
+        "required": [
+          "enabled"
+        ],
+        "title": "RepairEnabled"
+      },
+      "RuleFileCreateBody": {
+        "properties": {
+          "dir_path": {
+            "type": "string",
+            "title": "Dir Path"
+          },
+          "file_name": {
+            "type": "string",
+            "title": "File Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dir_path",
+          "file_name"
+        ],
+        "title": "RuleFileCreateBody"
+      },
+      "RuleFileDeleteBody": {
+        "properties": {
+          "dir_path": {
+            "type": "string",
+            "title": "Dir Path"
+          },
+          "file_name": {
+            "type": "string",
+            "title": "File Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "dir_path",
+          "file_name"
+        ],
+        "title": "RuleFileDeleteBody"
+      },
+      "RuleImageDeleteBody": {
+        "properties": {
+          "task_name": {
+            "type": "string",
+            "title": "Task Name"
+          },
+          "json_relpath": {
+            "type": "string",
+            "title": "Json Relpath"
+          },
+          "image_name": {
+            "type": "string",
+            "title": "Image Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "task_name",
+          "json_relpath",
+          "image_name"
+        ],
+        "title": "RuleImageDeleteBody"
+      },
+      "RuleSaveBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "task_name": {
+            "type": "string",
+            "title": "Task Name"
+          },
+          "json_relpath": {
+            "type": "string",
+            "title": "Json Relpath"
+          },
+          "rule_type": {
+            "type": "string",
+            "title": "Rule Type"
+          },
+          "rules": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Rules"
+          },
+          "list_meta": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "List Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "task_name",
+          "json_relpath",
+          "rule_type",
+          "rules"
+        ],
+        "title": "RuleSaveBody"
+      },
+      "RuleTestBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "image_id": {
+            "type": "string",
+            "title": "Image Id"
+          },
+          "task_name": {
+            "type": "string",
+            "title": "Task Name"
+          },
+          "json_relpath": {
+            "type": "string",
+            "title": "Json Relpath"
+          },
+          "rule_type": {
+            "type": "string",
+            "title": "Rule Type"
+          },
+          "rule": {
+            "type": "object",
+            "title": "Rule"
+          },
+          "list_meta": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "List Meta"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "image_id",
+          "task_name",
+          "json_relpath",
+          "rule_type",
+          "rule"
+        ],
+        "title": "RuleTestBody"
+      },
+      "SessionBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id"
+        ],
+        "title": "SessionBody"
+      },
+      "StatsAvailableDatesResponse": {
+        "properties": {
+          "script_name": {
+            "type": "string",
+            "title": "Script Name"
+          },
+          "dates": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Dates"
+          }
+        },
+        "type": "object",
+        "required": [
+          "script_name"
+        ],
+        "title": "StatsAvailableDatesResponse"
+      },
+      "StatsResponse": {
+        "properties": {
+          "script_name": {
+            "type": "string",
+            "title": "Script Name"
+          },
+          "total_runtime_seconds": {
+            "type": "number",
+            "title": "Total Runtime Seconds"
+          },
+          "total_task_run_count": {
+            "type": "integer",
+            "title": "Total Task Run Count"
+          },
+          "total_battle_count": {
+            "type": "integer",
+            "title": "Total Battle Count"
+          },
+          "tasks": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/TaskStatsResponse"
+            },
+            "type": "object",
+            "title": "Tasks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "script_name",
+          "total_runtime_seconds",
+          "total_task_run_count",
+          "total_battle_count"
+        ],
+        "title": "StatsResponse"
+      },
+      "TaskRunStatsResponse": {
+        "properties": {
+          "start_time": {
+            "type": "string",
+            "title": "Start Time"
+          },
+          "end_time": {
+            "type": "string",
+            "title": "End Time"
+          },
+          "duration_seconds": {
+            "type": "number",
+            "title": "Duration Seconds"
+          },
+          "battle": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BattleStatsResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "start_time",
+          "end_time",
+          "duration_seconds"
+        ],
+        "title": "TaskRunStatsResponse"
+      },
+      "TaskStatsResponse": {
+        "properties": {
+          "run_count": {
+            "type": "integer",
+            "title": "Run Count"
+          },
+          "total_duration_seconds": {
+            "type": "number",
+            "title": "Total Duration Seconds"
+          },
+          "battle": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BattleStatsResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/TaskRunStatsResponse"
+            },
+            "type": "array",
+            "title": "Runs"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_count",
+          "total_duration_seconds"
+        ],
+        "title": "TaskStatsResponse"
+      },
+      "UploadImageItem": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "content_base64": {
+            "type": "string",
+            "title": "Content Base64"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "content_base64"
+        ],
+        "title": "UploadImageItem"
+      },
+      "UploadImagesBody": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "images": {
+            "items": {
+              "$ref": "#/components/schemas/UploadImageItem"
+            },
+            "type": "array",
+            "title": "Images"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "images"
+        ],
+        "title": "UploadImagesBody"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
